@@ -59,22 +59,36 @@
 
     <div class="mb-2 overflow-hidden rounded-[1.5rem] border border-sky-200 bg-white shadow-sm">
       <div class="overflow-x-auto">
-        <table class="w-full border-collapse text-center text-[0.98rem] max-lg:text-[0.94rem] max-sm:text-[0.82rem]">
+        <table aria-label="Metric units of length conversion table" class="w-full table-fixed border-collapse text-center text-[0.82rem] max-lg:text-[0.72rem] max-sm:text-[0.62rem]">
           <tr class="bg-[#0e9db0] text-white">
-            <th class="border border-sky-200 px-3 py-3 font-bold">Unit</th>
-            <th class="border border-sky-200 px-3 py-3 font-bold">Relationship</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">Millimetre<br>(mm)</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">centimetre<br>(cm)</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">decimetre<br>(dm)</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">metre<br>(m)</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">decametre<br>(dam)</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">hectometre<br>(hm)</th>
+            <th class="border border-sky-200 px-1 py-2 font-bold">kilometre<br>(km)</th>
           </tr>
           <tr class="bg-[#eef8fc]">
-            <td class="border border-sky-200 px-3 py-3 font-semibold">1 cm</td>
-            <td class="border border-sky-200 px-3 py-3">10 mm</td>
+            <td class="border border-sky-200 px-1 py-1">1</td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td>
           </tr>
           <tr class="bg-white">
-            <td class="border border-sky-200 px-3 py-3 font-semibold">1 m</td>
-            <td class="border border-sky-200 px-3 py-3">100 cm = 1000 mm</td>
+            <td class="border border-sky-200 px-1 py-1">10</td><td class="border border-sky-200 px-1 py-1">1</td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td>
           </tr>
           <tr class="bg-[#eef8fc]">
-            <td class="border border-sky-200 px-3 py-3 font-semibold">1 km</td>
-            <td class="border border-sky-200 px-3 py-3">1000 m</td>
+            <td class="border border-sky-200 px-1 py-1">100</td><td class="border border-sky-200 px-1 py-1">10</td><td class="border border-sky-200 px-1 py-1">1</td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td>
+          </tr>
+          <tr class="bg-white">
+            <td class="border border-sky-200 px-1 py-1">1,000</td><td class="border border-sky-200 px-1 py-1">100</td><td class="border border-sky-200 px-1 py-1">10</td><td class="border border-sky-200 px-1 py-1">1</td><td class="border border-sky-200"></td><td class="border border-sky-200"></td><td class="border border-sky-200"></td>
+          </tr>
+          <tr class="bg-[#eef8fc]">
+            <td class="border border-sky-200 px-1 py-1">10,000</td><td class="border border-sky-200 px-1 py-1">1,000</td><td class="border border-sky-200 px-1 py-1">100</td><td class="border border-sky-200 px-1 py-1">10</td><td class="border border-sky-200 px-1 py-1">1</td><td class="border border-sky-200"></td><td class="border border-sky-200"></td>
+          </tr>
+          <tr class="bg-white">
+            <td class="border border-sky-200 px-1 py-1">100,000</td><td class="border border-sky-200 px-1 py-1">10,000</td><td class="border border-sky-200 px-1 py-1">1,000</td><td class="border border-sky-200 px-1 py-1">100</td><td class="border border-sky-200 px-1 py-1">10</td><td class="border border-sky-200 px-1 py-1">1</td><td class="border border-sky-200"></td>
+          </tr>
+          <tr class="bg-[#eef8fc]">
+            <td class="border border-sky-200 px-1 py-1">1,000,000</td><td class="border border-sky-200 px-1 py-1">100,000</td><td class="border border-sky-200 px-1 py-1">10,000</td><td class="border border-sky-200 px-1 py-1">1,000</td><td class="border border-sky-200 px-1 py-1">100</td><td class="border border-sky-200 px-1 py-1">10</td><td class="border border-sky-200 px-1 py-1">1</td>
           </tr>
         </table>
       </div>
@@ -86,7 +100,7 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js"></script>
+    <script src="./assets/offline-preloader.js?v=2"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
