@@ -12,6 +12,7 @@ const valueAfter = flag => {
 };
 const dryRun = !args.has('--write');
 const limit = Number(valueAfter('--limit') ?? Number.POSITIVE_INFINITY);
+const startAt = Math.max(0, Number(valueAfter('--start-at') ?? 0));
 const concurrency = Math.max(1, Number(valueAfter('--concurrency') ?? 4));
 const idPrefixes = (valueAfter('--id-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
 const excludePrefixes = (valueAfter('--exclude-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
@@ -71,15 +72,15 @@ function speakable(text) {
 
 const texts = JSON.parse(await fs.readFile(textPath, 'utf8'));
 const audioMap = JSON.parse(await fs.readFile(audioMapPath, 'utf8'));
-const jobs = Object.entries(audioMap)
+const allJobs = Object.entries(audioMap)
   .map(([id, filename]) => ({ id, filename, text: speakable(texts[id]) }))
   .filter(job => idPrefixes.length === 0 || idPrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !excludePrefixes.some(prefix => job.id.startsWith(prefix)))
-  .filter(job => job.text.length > 0)
-  .slice(0, limit);
+  .filter(job => job.text.length > 0);
+const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, idPrefixes, excludePrefixes, totalJobs: jobs.length, sample: jobs.slice(0, 3) }, null, 2));
+  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
   process.exit(0);
 }
 
@@ -96,6 +97,7 @@ async function generate(job) {
         method: 'POST',
         headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ model, voice, input: job.text, instructions, response_format: 'mp3' }),
+        signal: AbortSignal.timeout(90000),
       });
       if (response.ok || (response.status !== 429 && response.status < 500)) break;
     } catch (error) {
@@ -108,7 +110,7 @@ async function generate(job) {
   await fs.writeFile(`${target}.tmp`, Buffer.from(await response.arrayBuffer()));
   await fs.rename(`${target}.tmp`, target);
   completed += 1;
-  if (completed % 25 === 0 || completed === jobs.length) console.log(`Generated ${completed}/${jobs.length}`);
+  if (completed % 25 === 0 || completed === jobs.length) console.log(`Generated ${startAt + completed}/${allJobs.length}`);
 }
 
 async function worker() {
