@@ -163,6 +163,22 @@ const allJobs = Object.entries(audioMap)
   .filter(job => job.text.length > 0);
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 
+if (args.has('--audit-math-speech')) {
+  const fractionSource = /<mfrac\b|[½¼¾⅓⅔⅛⅜⅝⅞]/i;
+  const divisionSource = /⟌|<menclose\b[^>]*\bnotation=["']top["'][^>]*>\s*<mrow>\s*<mo[^>]*>\)<\/mo>/i;
+  const fractions = allJobs.filter(job => fractionSource.test(texts[job.id]));
+  const divisions = allJobs.filter(job => divisionSource.test(texts[job.id]));
+  const fractionFailures = fractions.filter(job => !/\bover\b/i.test(job.text));
+  const divisionFailures = divisions.filter(job => !/\bdivided by\b/i.test(job.text));
+  console.log(JSON.stringify({
+    fractionExpressions: fractions.length,
+    fractionFailures: fractionFailures.map(job => ({ id: job.id, speech: job.text })),
+    longDivisionExpressions: divisions.length,
+    longDivisionFailures: divisionFailures.map(job => ({ id: job.id, speech: job.text })),
+  }, null, 2));
+  process.exit(0);
+}
+
 if (dryRun) {
   console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
   process.exit(0);
