@@ -50,9 +50,91 @@ function romanNumberWords(numeral) {
   return cardinal(romanValue(numeral));
 }
 
+function decodeEntities(value) {
+  return value
+    .replaceAll('&nbsp;', ' ')
+    .replaceAll('&#160;', ' ')
+    .replaceAll('&times;', '×')
+    .replaceAll('&divide;', '÷')
+    .replaceAll('&minus;', '−')
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>')
+    .replaceAll('&amp;', '&');
+}
+
+function mathmlToSpeech(markup) {
+  const root = { tag: 'root', children: [] };
+  const stack = [root];
+  for (const token of markup.match(/<[^>]+>|[^<]+/g) ?? []) {
+    if (!token.startsWith('<')) {
+      stack.at(-1).children.push({ text: decodeEntities(token) });
+      continue;
+    }
+    if (/^<\//.test(token)) {
+      const closingTag = token.match(/^<\/\s*([^\s>]+)/)?.[1]?.toLowerCase();
+      while (stack.length > 1) {
+        const node = stack.pop();
+        if (node.tag === closingTag) break;
+      }
+      continue;
+    }
+    const tag = token.match(/^<\s*([^\s/>]+)/)?.[1]?.toLowerCase();
+    if (!tag) continue;
+    const node = { tag, children: [] };
+    stack.at(-1).children.push(node);
+    if (!/\/\s*>$/.test(token) && !['mspace', 'mprescripts', 'none'].includes(tag)) stack.push(node);
+  }
+  const render = node => {
+    if ('text' in node) return node.text;
+    const children = node.children.map(render).join(' ').replace(/\s+/g, ' ').trim();
+    if (node.tag === 'mrow' && node.children.length === 2 && node.children[1]?.tag === 'menclose') {
+      const divisor = render(node.children[0]);
+      const enclosed = render(node.children[1]);
+      if (enclosed.startsWith(')')) return `${enclosed.slice(1).trim()} divided by ${divisor}`;
+    }
+    if (node.tag === 'mfrac') {
+      const numerator = render(node.children[0] ?? { text: '' });
+      const denominator = render(node.children[1] ?? { text: '' });
+      return `${numerator} over ${denominator}`;
+    }
+    if (node.tag === 'msup') return `${render(node.children[0] ?? { text: '' })} to the power of ${render(node.children[1] ?? { text: '' })}`;
+    if (node.tag === 'msub') return `${render(node.children[0] ?? { text: '' })} subscript ${render(node.children[1] ?? { text: '' })}`;
+    if (node.tag === 'msqrt') return `square root of ${children}`;
+    if (node.tag === 'mroot') return `${render(node.children[0] ?? { text: '' })} root of ${render(node.children[1] ?? { text: '' })}`;
+    if (node.tag === 'mtable') return node.children.map(render).join('; ');
+    return children;
+  };
+  return render(root);
+}
+
+function texArraysToSpeech(value) {
+  return value.replace(/\\begin\{array\}\{[^}]*\}([\s\S]*?)\\end\{array\}/g, (_, contents) => contents
+    .replaceAll('\\hline', '')
+    .replaceAll('\\,', ' ')
+    .split(/\\\\/)
+    .map(row => row.trim())
+    .filter(Boolean)
+    .join('; '));
+}
+
 function speakable(text) {
-  let result = String(text)
+  let result = texArraysToSpeech(String(text))
+    .replace(/<math\b[\s\S]*?<\/math>/gi, mathmlToSpeech)
+    .replace(/<br\s*\/?\s*>/gi, '; ')
     .replace(/<[^>]+>/g, ' ')
+    .replace(/(\d+(?:\.\d+)?)\s*⟌\s*(\d+(?:\.\d+)?)/g, '$2 divided by $1')
+    .replaceAll('↓', ' bring down ')
+    .replace(/─+/g, '; ')
+    .replaceAll('½', ' one over two ')
+    .replaceAll('¼', ' one over four ')
+    .replaceAll('¾', ' three over four ')
+    .replaceAll('⅓', ' one over three ')
+    .replaceAll('⅔', ' two over three ')
+    .replaceAll('⅛', ' one over eight ')
+    .replaceAll('⅜', ' three over eight ')
+    .replaceAll('⅝', ' five over eight ')
+    .replaceAll('⅞', ' seven over eight ')
+    .replace(/(?<!\d\/)(\b\d+)\s*\/\s*(\d+\b)(?!\s*\/)/g, '$1 over $2')
     .replaceAll('×', ' multiplied by ')
     .replaceAll('÷', ' divided by ')
     .replaceAll('−', ' minus ')
@@ -64,7 +146,9 @@ function speakable(text) {
     .replaceAll('>', ' greater than ')
     .replaceAll('shs', 'shillings')
     .replaceAll('cts', 'cents')
+    .replace(/(?<![\d\w])-\s*(\d)/g, ' minus $1')
     .replace(/\s+/g, ' ')
+    .replace(/(?:;\s*){2,}/g, '; ')
     .trim();
   if (romanNumbers) result = result.replace(/\b[IVXLCDM]+\b/g, numeral => `Roman number ${romanNumberWords(numeral)}`);
   return result;
