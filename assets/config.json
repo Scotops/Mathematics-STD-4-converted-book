@@ -1,6 +1,6 @@
 {
   "title": "Mathematics Pupil's Book Standard Four",
-  "bundleVersion": "10",
+  "bundleVersion": "11",
   "languages": {
     "available": [
       "en-US"
@@ -21,7 +21,7 @@
     "state": true,
     "characterDisplay": false,
     "highlight": false,
-    "activities": true
+    "activities": false
   },
   "analytics": {
     "enabled": false,
