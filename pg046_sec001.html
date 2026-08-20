@@ -40,14 +40,16 @@
   <div data-id="pg046_n0004" class="inline-block -mt-11 mb-5 rounded-r-2xl border border-cyan-500 bg-cyan-100 px-5 py-2 text-xl font-bold text-neutral-800 max-sm:-mt-9 max-sm:text-lg">Example 3</div>
   <p data-id="pg046_n0005" class="sr-only">561672 divided by 696 equals 807.</p>
   <div data-id="pg046_n0006" class="mb-2 text-lg font-bold text-neutral-800">Solution</div>
-  <pre aria-hidden="true" class="ml-4 mb-3 overflow-x-auto font-mono text-xl leading-tight text-neutral-900 max-sm:ml-0 max-sm:text-lg">          807
-696 ⟌ 561672
-     − 5568
-         487
-       − 000
-        4872
-      − 4872
-            0</pre>
+  <div aria-hidden="true" class="ml-4 mb-4 inline-grid font-mono text-xl leading-tight text-neutral-900 max-sm:ml-0 max-sm:text-lg" style="grid-template-columns: 4ch 7ch; align-items: end;">
+    <span></span><span style="text-align: center;">807</span>
+    <span style="border-right: 2px solid #171717; padding-right: 0.25rem; text-align: right;">696</span><span style="border-top: 2px solid #171717; padding-left: 0.25rem;">561672</span>
+    <span></span><span style="justify-self: end; border-bottom: 2px solid #171717; padding: 0 0.1rem 0.1rem 0.35rem;">−5568</span>
+    <span></span><span style="justify-self: end; padding-right: 0.1rem;">487</span>
+    <span></span><span style="justify-self: end; border-bottom: 2px solid #171717; padding: 0 0.1rem 0.1rem 0.35rem;">−000</span>
+    <span></span><span style="justify-self: end; padding-right: 0.1rem;">4872</span>
+    <span></span><span style="justify-self: end; border-bottom: 2px solid #171717; padding: 0 0.1rem 0.1rem 0.35rem;">−4872</span>
+    <span></span><span style="justify-self: end; padding-right: 0.1rem;">0</span>
+  </div>
   <p data-id="pg046_n0007" class="sr-only">Long division solution: 696 goes into 5616 eight times; subtract 5568 to leave 48. Bring down 7 to make 487. 696 goes into 487 zero times; subtract 0. Bring down 2 to make 4872. 696 goes into 4872 seven times; subtract 4872 to leave 0.</p>
   <p data-id="pg046_n0008" class="text-lg text-neutral-800">Therefore, the answer is 807.</p>
 </section>
@@ -72,7 +74,7 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=38"></script>
+    <script src="./assets/offline-preloader.js?v=39"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
