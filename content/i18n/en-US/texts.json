@@ -1283,6 +1283,7 @@
   "pg035_n0034": "06/11/2024 17:17:01",
   "pg036_n0002": "Alternative method",
   "pg036_n0003": "Therefore, the answer is 33,948.",
+  "pg036_n0004": "This is a lattice multiplication table for 276 multiplied by 123. The column headings are 2, 7, and 6. The row headings are 1, 2, and 3. Each cell is divided by a diagonal that rises from bottom left to top right. The nine cell results are: 2, 7, 6; 4, 14, 12; and 6, 21, 18. Adding the diagonal totals from right to left gives 8, 4, 9, 3, 3. Reading these totals from left to right gives 33,948.",
   "pg036_n0005": "Example 3",
   "pg036_n0006": "42538 × 39 =",
   "pg036_n0007": "The answer can be obtained through a horizontal arrangement method as follows:",
