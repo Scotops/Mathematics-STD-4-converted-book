@@ -6761,5 +6761,20 @@
   "gl230": "word problem",
   "gl230_def": "A math question written using sentences and real-life situations.",
   "gl231": "year",
-  "gl231_def": "a period of 12 months"
+  "gl231_def": "a period of 12 months",
+  "pg008_tbl_r01c01": "6",
+  "pg008_tbl_r01c02": "VI",
+  "pg008_tbl_r01c03": "six",
+  "pg008_tbl_r02c01": "7",
+  "pg008_tbl_r02c02": "VII",
+  "pg008_tbl_r02c03": "seven",
+  "pg008_tbl_r03c01": "8",
+  "pg008_tbl_r03c02": "VIII",
+  "pg008_tbl_r03c03": "eight",
+  "pg008_tbl_r04c01": "9",
+  "pg008_tbl_r04c02": "IX",
+  "pg008_tbl_r04c03": "nine",
+  "pg008_tbl_r05c01": "10",
+  "pg008_tbl_r05c02": "X",
+  "pg008_tbl_r05c03": "ten"
 }
