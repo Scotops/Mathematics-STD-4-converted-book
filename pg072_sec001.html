@@ -17,6 +17,47 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+      section[data-section-id="pg072_sec001"].print-exercise {
+        padding-top: 1.75rem;
+      }
+      section[data-section-id="pg072_sec001"].print-exercise > div {
+        overflow: visible !important;
+        border: 1.5px solid #f15aa6 !important;
+        border-radius: 0 2rem 0 2rem !important;
+        background: #fff !important;
+        padding: 6rem 2.5rem 3rem !important;
+      }
+      section[data-section-id="pg072_sec001"] > div > div:first-child {
+        top: -1.7rem !important;
+        left: 3.5rem !important;
+        min-width: 16rem;
+        transform: none !important;
+        border: 2px solid #ec1689 !important;
+        border-radius: 1.6rem 1.6rem 0 1.6rem !important;
+        background: linear-gradient(180deg,#fbd9e9 0%,#eda7ca 100%) !important;
+        padding: .85rem 1.6rem !important;
+      }
+      section[data-section-id="pg072_sec001"] > div > div:first-child h1 {
+        margin: 0 !important;
+        font-size: 2rem !important;
+        line-height: 1 !important;
+      }
+      section[data-section-id="pg072_sec001"] > div > div:nth-child(2) {
+        position: relative;
+        z-index: 1;
+      }
+      section[data-section-id="pg072_sec001"] > div > div:nth-child(2) > div > div > div:first-child {
+        color: #73ad62 !important;
+      }
+      section[data-section-id="pg072_sec002"] {
+        margin-top: 2.75rem !important;
+        padding-left: .25rem;
+      }
+      @media (max-width: 600px) {
+        section[data-section-id="pg072_sec001"].print-exercise > div { padding: 4.5rem 1.25rem 2.25rem !important; }
+        section[data-section-id="pg072_sec001"] > div > div:first-child { left: 1.25rem !important; min-width: 12rem; }
+        section[data-section-id="pg072_sec001"] > div > div:first-child h1 { font-size: 1.45rem !important; }
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -203,7 +244,7 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=58"></script>
+    <script src="./assets/offline-preloader.js?v=59"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
