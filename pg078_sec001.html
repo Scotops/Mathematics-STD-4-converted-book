@@ -17,6 +17,62 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+      section[data-section-id="pg078_sec001"].print-exercise {
+        padding-top: 1.75rem;
+      }
+      section[data-section-id="pg078_sec001"].print-exercise > div {
+        border: 1.5px solid #f4bad6 !important;
+        border-radius: 0 2.25rem 0 2.25rem !important;
+        background: #fff !important;
+        padding: 2rem 1.5rem 2.75rem !important;
+      }
+      section[data-section-id="pg078_sec001"].print-exercise > div > div {
+        overflow: visible !important;
+        border: 1px solid #f4bad6 !important;
+        border-radius: 0 1.9rem 0 1.9rem !important;
+        background: #fff !important;
+        padding: 6.5rem 2.25rem 2.75rem !important;
+      }
+      section[data-section-id="pg078_sec001"] > div > div > div:first-child {
+        top: -1.65rem !important;
+        left: 2.75rem !important;
+        min-width: 15rem;
+        border: 2px solid #ec1689 !important;
+        border-radius: 1.5rem 1.5rem 0 1.5rem !important;
+        background: linear-gradient(180deg,#fbd9e9 0%,#eda7ca 100%) !important;
+        padding: .85rem 1.5rem !important;
+      }
+      section[data-section-id="pg078_sec001"] [data-id="pg078_n0003"] {
+        display: block;
+        font-size: 1.65rem !important;
+        line-height: 1 !important;
+      }
+      section[data-section-id="pg078_sec001"] > div > div > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+      section[data-section-id="pg078_sec001"] > div > div > div:nth-child(2) > div {
+        margin-top: 0 !important;
+      }
+      section[data-section-id="pg078_sec001"] [data-id="pg078_n0004"],
+      section[data-section-id="pg078_sec001"] [data-id="pg078_n0014"],
+      section[data-section-id="pg078_sec001"] [data-id="pg078_n0024"],
+      section[data-section-id="pg078_sec001"] [data-id="pg078_n0027"] {
+        color: #73ad62 !important;
+      }
+      section[data-section-id="pg078_sec001"] .grid.grid-cols-4 {
+        margin-top: .8rem !important;
+      }
+      section[data-section-id="pg078_sec002"] {
+        margin-top: 3rem;
+      }
+      @media (max-width: 600px) {
+        section[data-section-id="pg078_sec001"].print-exercise > div { padding: 1.4rem .8rem 2rem !important; }
+        section[data-section-id="pg078_sec001"].print-exercise > div > div { padding: 4.5rem 1.1rem 2rem !important; }
+        section[data-section-id="pg078_sec001"] > div > div > div:first-child { left: 1rem !important; min-width: 11rem; }
+        section[data-section-id="pg078_sec001"] > div > div > div:nth-child(2) { gap: 2rem; }
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -183,7 +239,7 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=59"></script>
+    <script src="./assets/offline-preloader.js?v=60"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
