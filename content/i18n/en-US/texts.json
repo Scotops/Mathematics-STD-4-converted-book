@@ -271,7 +271,7 @@
   "pg012_n0012": "(b) <span class=\"adt-print-blank inline-block align-bottom mx-1 h-[1.4em] min-w-[4ch] border-b-2 border-gray-400\" aria-hidden=\"true\"></span><span class=\"sr-only\">blank</span>, XIV, <span class=\"adt-print-blank inline-block align-bottom mx-1 h-[1.4em] min-w-[4ch] border-b-2 border-gray-400\" aria-hidden=\"true\"></span><span class=\"sr-only\">blank</span>, XII, <span class=\"adt-print-blank inline-block align-bottom mx-1 h-[1.4em] min-w-[4ch] border-b-2 border-gray-400\" aria-hidden=\"true\"></span><span class=\"sr-only\">blank</span>, X",
   "pg012_n0014": "6.",
   "pg012_n0015": "Read the clock face, then write the time in numerals.",
-  "pg012_n0017": "clock face",
+  "pg012_n0017": "Clock face: the shorter hour hand is slightly past Roman number ten. The longer minute hand points to Roman number two. Write the time in numerals.",
   "pg012_sec001_ans_item-1": "XIX, XVII, XIII, XVI, XX, XIV, XII, XVIII, XI, XV",
   "pg012_sec001_ans_item-2": "XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX",
   "pg012_sec001_ans_item-3": "11, 18, 15, 17, 12",
