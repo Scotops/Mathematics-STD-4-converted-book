@@ -1,0 +1,42 @@
+/* Shared book canvas and typography.
+   Keep every ADT page centred like the printed page while leaving each
+   page's internal mathematics, tables, diagrams, and responsive layout intact. */
+:root {
+  --book-canvas-width: 74rem;
+  --book-font-family: "Atkinson Hyperlegible", "Merriweather", Arial, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body,
+body > main,
+#content {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: var(--book-font-family);
+}
+
+body > main {
+  width: 100%;
+}
+
+#content {
+  width: 100%;
+  max-width: var(--book-canvas-width) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  font-family: var(--book-font-family);
+}
+
+@media (max-width: 40rem) {
+  #content {
+    max-width: 100% !important;
+  }
+}
