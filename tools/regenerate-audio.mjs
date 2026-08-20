@@ -18,6 +18,7 @@ const idPrefixes = (valueAfter('--id-prefixes') ?? '').split(',').map(value => v
 const excludePrefixes = (valueAfter('--exclude-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
 const romanNumbers = args.has('--roman-numbers');
 const questionNumbersOnly = args.has('--question-numbers-only');
+const stepNumbersOnly = args.has('--step-numbers-only');
 const voice = valueAfter('--voice') ?? 'coral';
 const model = valueAfter('--model') ?? 'gpt-4o-mini-tts';
 const instructions = valueAfter('--instructions') ??
@@ -53,6 +54,28 @@ function romanNumberWords(numeral) {
 
 function isStandaloneQuestionNumber(text) {
   return /^\d+\.$/.test(String(text).trim());
+}
+
+function plainText(value) {
+  return String(value).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function findStepNumberIds(sourceTexts) {
+  const entries = Object.entries(sourceTexts);
+  const ids = new Set();
+  for (let index = 0; index < entries.length; index += 1) {
+    const [id, value] = entries[index];
+    if (plainText(value) !== 'Steps') continue;
+    const pagePrefix = id.slice(0, 5);
+    for (let cursor = index + 1; cursor < entries.length && entries[cursor][0].slice(0, 5) === pagePrefix; cursor += 1) {
+      const [candidateId, candidateValue] = entries[cursor];
+      const text = plainText(candidateValue);
+      if (/^(Example|Exercise|Activity|Chapter|Introduction|Revision Exercise)\b/i.test(text)) break;
+      if (/^\d+\.(?:\s|$)/.test(text)) ids.add(candidateId);
+    }
+  }
+  for (const [id, value] of entries) if (/\bSteps\s+\d+\./i.test(String(value))) ids.add(id);
+  return ids;
 }
 
 function decodeEntities(value) {
@@ -122,9 +145,10 @@ function texArraysToSpeech(value) {
     .join('; '));
 }
 
-function speakable(text) {
+function speakable(text, stepNumbered = false) {
   if (isStandaloneQuestionNumber(text)) {
-    return `Question number ${cardinal(Number(String(text).trim().slice(0, -1)))}.`;
+    const number = cardinal(Number(String(text).trim().slice(0, -1)));
+    return stepNumbered ? `Step number ${number}.` : `Question number ${number}.`;
   }
   let result = texArraysToSpeech(String(text))
     .replace(/<math\b[\s\S]*?<\/math>/gi, mathmlToSpeech)
@@ -159,16 +183,25 @@ function speakable(text) {
     .replace(/(?:;\s*){2,}/g, '; ')
     .trim();
   if (romanNumbers) result = result.replace(/\b[IVXLCDM]+\b/g, numeral => `Roman number ${romanNumberWords(numeral)}`);
+  if (stepNumbered) {
+    result = result
+      .replace(/^(\d+)\.\s*/, (_, number) => `Step number ${cardinal(Number(number))}. `)
+      .replace(/\bSteps\s+(\d+)\./gi, (_, number) => `Steps. Step number ${cardinal(Number(number))}.`)
+      .replace(/;\s*(\d+)\./g, (_, number) => `; Step number ${cardinal(Number(number))}.`)
+      .replace(/(\.)\s+([1-9]\d?)\.(?=\s+(?:Add|Subtract|Write|Multiply|Divide|Count|Draw|Shade|Convert|Change|Show|Identify|Measure|Put|Take|Drop|Regroup))/g, (_, period, number) => `${period} Step number ${cardinal(Number(number))}.`);
+  }
   return result;
 }
 
 const texts = JSON.parse(await fs.readFile(textPath, 'utf8'));
 const audioMap = JSON.parse(await fs.readFile(audioMapPath, 'utf8'));
+const stepNumberIds = findStepNumberIds(texts);
 const allJobs = Object.entries(audioMap)
-  .map(([id, filename]) => ({ id, filename, text: speakable(texts[id]) }))
+  .map(([id, filename]) => ({ id, filename, text: speakable(texts[id], stepNumberIds.has(id)) }))
   .filter(job => idPrefixes.length === 0 || idPrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !excludePrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !questionNumbersOnly || isStandaloneQuestionNumber(texts[job.id]))
+  .filter(job => !stepNumbersOnly || stepNumberIds.has(job.id))
   .filter(job => job.text.length > 0);
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 
