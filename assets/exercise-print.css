@@ -1,33 +1,21 @@
-/* Printed-book treatment for exercise sections. */
+/* Preserve the book's original exercise, revision, summary, and vocabulary
+   colours. Page HTML supplies those colours and the spacing around its labels.
+   Only conversion-created option cards are flattened below. */
 .print-exercise,
 .print-exercise * {
-  color: #111 !important;
   text-shadow: none !important;
-  box-shadow: none !important;
 }
 
-.print-exercise {
-  background: #fff !important;
-  border-radius: 0 !important;
-}
-
-.print-exercise [class*="bg-"],
-.print-exercise [class*="from-"],
-.print-exercise [class*="to-"] {
+/* The conversion created decorative answer cards on some exercise grids.
+   Keep the printed-book rows, but retain the surrounding exercise panel,
+   heading colour, question-number colour, padding, and rounded corners. */
+.print-exercise .grid > [class*="rounded"][class*="border"] {
+  min-height: 0 !important;
+  border-style: none !important;
   background: transparent !important;
   background-image: none !important;
-}
-
-.print-exercise [class*="rounded"] {
-  border-radius: 0 !important;
-}
-
-/* The conversion created decorative cards for answer areas.  Printed exercises
-   use ordinary inline items, so these card borders and extra padding disappear. */
-.print-exercise [class*="rounded"][class*="border"] {
-  border-style: none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  box-shadow: none !important;
+  padding: 0.45rem 0 !important;
 }
 
 .print-exercise [class*="rounded-full"] {
@@ -35,19 +23,67 @@
   width: auto !important;
   height: auto !important;
   min-height: 0 !important;
+  border-style: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: #73ad62 !important;
   padding: 0 !important;
 }
 
-.print-exercise [class*="border-pink"],
-.print-exercise [class*="border-green"],
-.print-exercise [class*="border-blue"],
-.print-exercise [class*="border-cyan"],
-.print-exercise [class*="border-sky"],
-.print-exercise [class*="border-indigo"],
-.print-exercise [class*="border-purple"],
-.print-exercise [class*="border-orange"],
-.print-exercise [class*="border-yellow"] {
-  border-color: #111 !important;
+/* Exercise labels sit above their own top border. Give them the same clear
+   transition used in the printed book when another section precedes them. */
+section + .print-exercise {
+  margin-top: 2.5rem !important;
+}
+
+/* Prevent the next topic from crowding the final exercise row. */
+.print-exercise + section {
+  margin-top: 2.5rem !important;
+}
+
+/* A few source-book colours use arbitrary Tailwind values that were not
+   emitted by the old compiled stylesheet. Keep local fallbacks here so those
+   panels do not silently become white or transparent. */
+[class*="to-[#dcebcf]"] {
+  --tw-gradient-to: #dcebcf var(--tw-gradient-to-position) !important;
+}
+
+[class*="bg-[#f1f7ec]"] {
+  background-color: #f1f7ec !important;
+}
+
+[class*="bg-[#f5fae8]"] {
+  background-color: #f5fae8 !important;
+}
+
+[class~="bg-lime-200"] {
+  background-color: #d9f99d !important;
+}
+
+[class*="bg-[radial-gradient(circle_at_55%_0%,rgba(190,242,100,0.14),transparent_24%)]"] {
+  background-image: radial-gradient(circle at 55% 0%, rgba(190, 242, 100, 0.14), transparent 24%) !important;
+}
+
+[class*="bg-[radial-gradient(circle_at_top,_#eef6df_0%,_#ffffff_20%,_#ffffff_82%,_#eef6df_100%)]"] {
+  background-image: radial-gradient(circle at top, #eef6df 0%, #ffffff 20%, #ffffff 82%, #eef6df 100%) !important;
+}
+
+[class*="bg-[radial-gradient(circle_at_top,_rgba(181,220,152,0.18),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(181,220,152,0.12),_transparent_38%)]"] {
+  background-image:
+    radial-gradient(circle at top, rgba(181, 220, 152, 0.18), transparent 42%),
+    radial-gradient(circle at bottom, rgba(181, 220, 152, 0.12), transparent 38%) !important;
+}
+
+[class*="bg-[radial-gradient(circle_at_top,_rgba(190,242,100,0.16),_transparent_38%)]"] {
+  background-image: radial-gradient(circle at top, rgba(190, 242, 100, 0.16), transparent 38%) !important;
+}
+
+[class*="bg-[radial-gradient(circle_at_top,_rgba(190,242,100,0.18),_transparent_72%)]"] {
+  background-image: radial-gradient(circle at top, rgba(190, 242, 100, 0.18), transparent 72%) !important;
+}
+
+[class*="bg-[radial-gradient(circle_at_top,_rgba(210,234,220,0.38),_transparent_48%)]"] {
+  background-image: radial-gradient(circle at top, rgba(210, 234, 220, 0.38), transparent 48%) !important;
 }
 
 /* A printed answer space: visible as a line, announced by read-aloud as “dash”. */
