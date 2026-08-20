@@ -1,0 +1,51 @@
+/* Printed-book treatment for exercise sections. */
+.print-exercise,
+.print-exercise * {
+  color: #111 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.print-exercise {
+  background: #fff !important;
+  border-radius: 0 !important;
+}
+
+.print-exercise [class*="bg-"],
+.print-exercise [class*="from-"],
+.print-exercise [class*="to-"] {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+.print-exercise [class*="rounded"] {
+  border-radius: 0 !important;
+}
+
+/* The conversion created decorative cards for answer areas.  Printed exercises
+   use ordinary inline items, so these card borders and extra padding disappear. */
+.print-exercise [class*="rounded"][class*="border"] {
+  border-style: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.print-exercise [class*="rounded-full"] {
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+.print-exercise [class*="border-pink"],
+.print-exercise [class*="border-green"],
+.print-exercise [class*="border-blue"],
+.print-exercise [class*="border-cyan"],
+.print-exercise [class*="border-sky"],
+.print-exercise [class*="border-indigo"],
+.print-exercise [class*="border-purple"],
+.print-exercise [class*="border-orange"],
+.print-exercise [class*="border-yellow"] {
+  border-color: #111 !important;
+}
