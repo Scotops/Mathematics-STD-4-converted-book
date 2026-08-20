@@ -32,7 +32,14 @@
         <p class="mb-4 text-left text-[1.45rem] leading-tight max-lg:text-[1.2rem] max-sm:text-[0.95rem]"><span data-id="pg087_n0004">Find the perimeter of the following rectangle.</span></p>
 
         <div class="mb-5 max-sm:mb-4">
-          <img src="images/pg087_im002_crop1.png" data-id="pg087_im002_crop1" alt="" class="block max-w-full rounded-xl border border-neutral-200" style="max-width: 100%; height: auto;">
+          <svg viewBox="0 0 440 250" role="img" aria-label="Rectangle with 100 cm along the bottom and 40 cm along the right side" class="block h-auto w-full max-w-full">
+            <defs><marker id="pg087-arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#303030"/></marker></defs>
+            <rect x="55" y="25" width="300" height="120" fill="#f7faef" stroke="#303030" stroke-width="2"/>
+            <line x1="55" y1="155" x2="355" y2="155" stroke="#303030" stroke-width="2" marker-start="url(#pg087-arrow)" marker-end="url(#pg087-arrow)"/>
+            <text x="205" y="178" text-anchor="middle" font-size="20" fill="#303030">100 cm</text>
+            <line x1="370" y1="25" x2="370" y2="145" stroke="#303030" stroke-width="2" marker-start="url(#pg087-arrow)" marker-end="url(#pg087-arrow)"/>
+            <text x="392" y="95" text-anchor="middle" font-size="20" fill="#303030">40 cm</text>
+          </svg>
         </div>
 
         <h3 data-id="pg087_n0005" class="mb-2 text-left text-[1.15rem] font-bold leading-tight max-lg:text-[1.05rem] max-sm:text-[1rem]">Solution</h3>
@@ -79,7 +86,7 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=41"></script>
+    <script src="./assets/offline-preloader.js?v=42"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>

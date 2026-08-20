@@ -36,7 +36,14 @@
 
       <div class="p-4 max-lg:p-4 max-sm:p-3">
         <div class="mb-5 rounded-2xl bg-[#f8fbf4] max-sm:mb-4">
-          <img data-id="pg086_im002_crop1" src="images/pg086_im002_crop1.png" alt="" class="block max-w-full rounded-xl border border-green-100 object-contain" style="max-width: 100%; height: auto;">
+          <svg viewBox="0 0 440 250" role="img" aria-label="Rectangle with Length along the bottom and Width along the right side" class="block h-auto w-full max-w-full">
+            <defs><marker id="pg086-arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#303030"/></marker></defs>
+            <rect x="55" y="25" width="300" height="140" fill="#f7faef" stroke="#303030" stroke-width="2"/>
+            <line x1="55" y1="175" x2="355" y2="175" stroke="#303030" stroke-width="2" marker-start="url(#pg086-arrow)" marker-end="url(#pg086-arrow)"/>
+            <text x="205" y="198" text-anchor="middle" font-size="20" fill="#303030">Length</text>
+            <line x1="370" y1="25" x2="370" y2="165" stroke="#303030" stroke-width="2" marker-start="url(#pg086-arrow)" marker-end="url(#pg086-arrow)"/>
+            <text x="392" y="105" text-anchor="middle" font-size="20" fill="#303030">Width</text>
+          </svg>
           <div class="hidden">
             <div data-id="pg086_n0005">Width</div>
             <div data-id="pg086_n0006">Length</div>
@@ -98,7 +105,7 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=41"></script>
+    <script src="./assets/offline-preloader.js?v=42"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
