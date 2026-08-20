@@ -16,7 +16,9 @@ const startAt = Math.max(0, Number(valueAfter('--start-at') ?? 0));
 const concurrency = Math.max(1, Number(valueAfter('--concurrency') ?? 4));
 const idPrefixes = (valueAfter('--id-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
 const excludePrefixes = (valueAfter('--exclude-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
+const filenameVersion = valueAfter('--filename-version');
 const romanNumbers = args.has('--roman-numbers');
+const romanNumeralsOnly = args.has('--roman-numerals-only');
 const questionNumbersOnly = args.has('--question-numbers-only');
 const stepNumbersOnly = args.has('--step-numbers-only');
 const answerLinesOnly = args.has('--answer-lines-only');
@@ -202,8 +204,10 @@ const allJobs = Object.entries(audioMap)
   .map(([id, filename]) => ({ id, filename, text: speakable(texts[id], stepNumberIds.has(id)) }))
   .filter(job => idPrefixes.length === 0 || idPrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !excludePrefixes.some(prefix => job.id.startsWith(prefix)))
+  .filter(job => !filenameVersion || job.filename.endsWith(`?v=${filenameVersion}`))
   .filter(job => !questionNumbersOnly || isStandaloneQuestionNumber(texts[job.id]))
   .filter(job => !stepNumbersOnly || stepNumberIds.has(job.id))
+  .filter(job => !romanNumeralsOnly || /\b[IVXLCDM]+\b/.test(plainText(texts[job.id])))
   .filter(job => !answerLinesOnly || /\banswer-line\b/i.test(String(texts[job.id])))
   .filter(job => job.text.length > 0);
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
@@ -225,7 +229,7 @@ if (args.has('--audit-math-speech')) {
 }
 
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
+  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, romanNumeralsOnly, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
   process.exit(0);
 }
 

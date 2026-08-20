@@ -51,6 +51,7 @@
 }
 
 /* A printed answer space: visible as a line, announced by read-aloud as “dash”. */
+.answer-line,
 .print-exercise .answer-line {
   display: inline-block;
   width: 3.5ch;
