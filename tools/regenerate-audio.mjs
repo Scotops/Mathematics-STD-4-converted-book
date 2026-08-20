@@ -19,6 +19,7 @@ const excludePrefixes = (valueAfter('--exclude-prefixes') ?? '').split(',').map(
 const romanNumbers = args.has('--roman-numbers');
 const questionNumbersOnly = args.has('--question-numbers-only');
 const stepNumbersOnly = args.has('--step-numbers-only');
+const answerLinesOnly = args.has('--answer-lines-only');
 const voice = valueAfter('--voice') ?? 'coral';
 const model = valueAfter('--model') ?? 'gpt-4o-mini-tts';
 const instructions = valueAfter('--instructions') ??
@@ -152,6 +153,7 @@ function speakable(text, stepNumbered = false) {
   }
   let result = texArraysToSpeech(String(text))
     .replace(/<math\b[\s\S]*?<\/math>/gi, mathmlToSpeech)
+    .replace(/<span\b[^>]*\bclass=(["'])[^"']*\banswer-line\b[^"']*\1[^>]*>\s*<\/span>/gi, ' dash ')
     .replace(/<br\s*\/?\s*>/gi, '; ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/(\d+(?:\.\d+)?)\s*⟌\s*(\d+(?:\.\d+)?)/g, '$2 divided by $1')
@@ -202,6 +204,7 @@ const allJobs = Object.entries(audioMap)
   .filter(job => !excludePrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !questionNumbersOnly || isStandaloneQuestionNumber(texts[job.id]))
   .filter(job => !stepNumbersOnly || stepNumberIds.has(job.id))
+  .filter(job => !answerLinesOnly || /\banswer-line\b/i.test(String(texts[job.id])))
   .filter(job => job.text.length > 0);
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 

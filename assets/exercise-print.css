@@ -49,3 +49,13 @@
 .print-exercise [class*="border-yellow"] {
   border-color: #111 !important;
 }
+
+/* A printed answer space: visible as a line, announced by read-aloud as “dash”. */
+.print-exercise .answer-line {
+  display: inline-block;
+  width: 3.5ch;
+  height: 1em;
+  margin: 0 0.12em;
+  vertical-align: -0.05em;
+  border-bottom: 1.5px solid currentColor;
+}
