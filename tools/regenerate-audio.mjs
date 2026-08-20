@@ -17,6 +17,7 @@ const concurrency = Math.max(1, Number(valueAfter('--concurrency') ?? 4));
 const idPrefixes = (valueAfter('--id-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
 const excludePrefixes = (valueAfter('--exclude-prefixes') ?? '').split(',').map(value => value.trim()).filter(Boolean);
 const romanNumbers = args.has('--roman-numbers');
+const questionNumbersOnly = args.has('--question-numbers-only');
 const voice = valueAfter('--voice') ?? 'coral';
 const model = valueAfter('--model') ?? 'gpt-4o-mini-tts';
 const instructions = valueAfter('--instructions') ??
@@ -48,6 +49,10 @@ function cardinal(value) {
 
 function romanNumberWords(numeral) {
   return cardinal(romanValue(numeral));
+}
+
+function isStandaloneQuestionNumber(text) {
+  return /^\d+\.$/.test(String(text).trim());
 }
 
 function decodeEntities(value) {
@@ -118,6 +123,9 @@ function texArraysToSpeech(value) {
 }
 
 function speakable(text) {
+  if (isStandaloneQuestionNumber(text)) {
+    return `Question number ${cardinal(Number(String(text).trim().slice(0, -1)))}.`;
+  }
   let result = texArraysToSpeech(String(text))
     .replace(/<math\b[\s\S]*?<\/math>/gi, mathmlToSpeech)
     .replace(/<br\s*\/?\s*>/gi, '; ')
@@ -160,6 +168,7 @@ const allJobs = Object.entries(audioMap)
   .map(([id, filename]) => ({ id, filename, text: speakable(texts[id]) }))
   .filter(job => idPrefixes.length === 0 || idPrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !excludePrefixes.some(prefix => job.id.startsWith(prefix)))
+  .filter(job => !questionNumbersOnly || isStandaloneQuestionNumber(texts[job.id]))
   .filter(job => job.text.length > 0);
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 
@@ -206,7 +215,7 @@ async function generate(job) {
     await new Promise(resolve => setTimeout(resolve, 1000 * attempt * attempt));
   }
   if (!response?.ok) throw new Error(`${job.id}: ${response?.status} ${await response?.text()}`);
-  const target = path.join(audioDir, job.filename);
+  const target = path.join(audioDir, job.filename.split('?')[0]);
   await fs.writeFile(`${target}.tmp`, Buffer.from(await response.arrayBuffer()));
   await fs.rename(`${target}.tmp`, target);
   completed += 1;
