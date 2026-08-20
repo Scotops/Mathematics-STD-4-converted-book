@@ -17,6 +17,87 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+      section[data-section-id="pg061_sec001"].print-exercise {
+        background: #fff !important;
+        padding-top: 1.5rem;
+      }
+      section[data-section-id="pg061_sec001"].print-exercise > div {
+        overflow: visible !important;
+        border: 1.5px solid #f15aa6 !important;
+        border-radius: 0 2.25rem 0 2.25rem !important;
+        background: #fff !important;
+        padding: 4.75rem 2.5rem 1.75rem !important;
+      }
+      section[data-section-id="pg061_sec001"] > div > div:first-child {
+        left: 3rem !important;
+        top: -1.75rem !important;
+      }
+      section[data-section-id="pg061_sec001"] [data-id="pg061_n0003"] {
+        display: inline-block !important;
+        min-width: 19rem;
+        border: 2px solid #ec1689 !important;
+        border-radius: 1.75rem 1.75rem 0 1.75rem !important;
+        background: linear-gradient(180deg,#fbd9e9 0%,#eda7ca 100%) !important;
+        padding: .9rem 1.4rem !important;
+        color: #181818 !important;
+        font-size: 2rem !important;
+        line-height: 1 !important;
+      }
+      section[data-section-id="pg061_sec001"] > div > div:nth-child(2) {
+        display: grid !important;
+        grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+        column-gap: 3rem !important;
+        row-gap: 1.25rem !important;
+      }
+      section[data-section-id="pg061_sec001"] > div > div:nth-child(2) > div {
+        min-height: 10.75rem;
+        gap: .75rem !important;
+      }
+      section[data-section-id="pg061_sec001"] > div > div:nth-child(2) > div > span:first-child {
+        color: #73ad62 !important;
+        font-size: 1.45rem !important;
+        line-height: 1.2 !important;
+      }
+      section[data-section-id="pg061_sec001"] .flex-1.text-left {
+        max-width: 14rem;
+        margin: 0 auto;
+      }
+      section[data-section-id="pg061_sec001"] .text-center {
+        font-family: "Courier New",monospace !important;
+        font-size: 1.45rem !important;
+        font-variant-numeric: tabular-nums;
+        line-height: 1.45 !important;
+        letter-spacing: .035em;
+      }
+      section[data-section-id="pg061_sec001"] .text-center > span {
+        font-family: inherit !important;
+      }
+      section[data-section-id="pg061_sec001"] .text-center + div {
+        height: 0 !important;
+        margin-top: .15rem !important;
+        border-top: 2px solid #222 !important;
+        background: transparent !important;
+      }
+      section[data-section-id="pg061_sec001"] .flex-1.text-left::after {
+        content: "";
+        display: block;
+        width: 12rem;
+        margin: 2.35rem auto 0;
+        border-top: 2px solid #222;
+      }
+      section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-32)::after { width: 8rem; }
+      section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-36)::after { width: 9rem; }
+      section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-44)::after { width: 11rem; }
+      section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-48)::after { width: 12rem; }
+      @media (max-width: 900px) {
+        section[data-section-id="pg061_sec001"] > div > div:nth-child(2) { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+      }
+      @media (max-width: 600px) {
+        section[data-section-id="pg061_sec001"].print-exercise > div { padding: 4rem 1.1rem 1.5rem !important; }
+        section[data-section-id="pg061_sec001"] > div > div:first-child { left: 1.25rem !important; }
+        section[data-section-id="pg061_sec001"] [data-id="pg061_n0003"] { min-width: 13rem; font-size: 1.45rem !important; }
+        section[data-section-id="pg061_sec001"] > div > div:nth-child(2) { grid-template-columns: 1fr !important; }
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -30,7 +111,7 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=57"></script>
+    <script src="./assets/offline-preloader.js?v=58"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
