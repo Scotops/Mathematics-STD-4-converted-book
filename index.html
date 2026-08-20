@@ -23,8 +23,8 @@
         aspect-ratio: 509 / 742;
         overflow: hidden;
         color: #0a6d3c;
-        background: #ccebd3;
-        border: 1px solid #79b886;
+        background: #b8dcc6;
+        border: 1px solid #69aa7a;
         box-shadow: 0 2px 5px rgba(24, 92, 50, .16);
       }
       .approval-certificate__content {
@@ -42,24 +42,24 @@
       .approval-certificate__signature,
       .approval-certificate__name,
       .approval-certificate__role { position: absolute; }
-      .approval-certificate__country { top: 8.2%; left: 8%; right: 8%; }
-      .approval-certificate__ministry { top: 13%; left: 21%; right: 21%; }
-      .approval-certificate__title { top: 28.8%; left: 8%; right: 8%; }
-      .approval-certificate__number { top: 37%; right: 9%; }
-      .approval-certificate__fields { top: 47.4%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__approval { top: 65%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__signature { top: 80.1%; left: 8.5%; }
-      .approval-certificate__name { top: 87.8%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__role { top: 91.7%; left: 8.5%; right: 8.5%; }
+      .approval-certificate__country { top: 10.8%; left: 8%; right: 8%; }
+      .approval-certificate__ministry { top: 16.3%; left: 19%; right: 19%; }
+      .approval-certificate__title { top: 31.1%; left: 8%; right: 8%; }
+      .approval-certificate__number { top: 39.1%; right: 9%; }
+      .approval-certificate__fields { top: 49%; left: 8.5%; right: 8.5%; }
+      .approval-certificate__approval { top: 65.9%; left: 8.5%; right: 8.5%; }
+      .approval-certificate__signature { top: 80.8%; left: 8.5%; }
+      .approval-certificate__name { top: 87.7%; left: 8.5%; right: 8.5%; }
+      .approval-certificate__role { top: 91.5%; left: 8.5%; right: 8.5%; }
       .approval-certificate__field {
         display: grid;
         grid-template-columns: max-content 1fr;
         align-items: end;
         column-gap: 7px;
-        margin-top: 8px;
+        margin-top: 7px;
         text-align: left;
-        font-size: 13px;
-        line-height: 1.15;
+        font-size: 11.5px;
+        line-height: 1.1;
       }
       .approval-certificate__field::after {
         content: "";
@@ -75,7 +75,7 @@
         grid-column: 1 / 3;
         grid-row: 1;
         padding-right: 3px;
-        background: linear-gradient(to right, transparent 0, transparent 31%, rgba(207, 235, 213, .82) 31%, rgba(207, 235, 213, .82) 100%);
+        background: linear-gradient(to right, transparent 0, transparent 31%, rgba(184, 220, 198, .84) 31%, rgba(184, 220, 198, .84) 100%);
       }
       @media (max-width: 640px) {
         .approval-certificate { width: 300px; }
@@ -99,13 +99,14 @@
       </div>
 
       <div class="mt-8 flex w-full flex-col items-center">
-        <div class="approval-certificate mt-5" role="group" aria-label="Certificate of Approval">
+        <span id="certificate-description" data-id="pg001_n0006" class="sr-only">A pale green official certificate with an ornate interwoven security border, a fine central guilloche pattern, green lettering, a red script title, and a blue signature.</span>
+        <div class="approval-certificate mt-5" role="group" aria-label="Certificate of Approval" aria-describedby="certificate-description">
           <svg class="absolute inset-0 h-full w-full" viewBox="0 0 509 742" preserveAspectRatio="none" aria-hidden="true">
             <defs>
               <linearGradient id="cert-paper" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#dff4df"/>
-                <stop offset=".48" stop-color="#b9e1c3"/>
-                <stop offset="1" stop-color="#d9f0d8"/>
+                <stop offset="0" stop-color="#cce8d2"/>
+                <stop offset=".48" stop-color="#a8d2ba"/>
+                <stop offset="1" stop-color="#c8e5cf"/>
               </linearGradient>
               <radialGradient id="cert-glow" cx="50%" cy="47%" r="63%">
                 <stop offset="0" stop-color="#eef8dc" stop-opacity=".92"/>
@@ -119,14 +120,32 @@
               <pattern id="cert-fine" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
                 <path d="M0 2H13M0 7H13M0 12H13" stroke="#5aa66b" stroke-width=".45" opacity=".35"/>
               </pattern>
-              <clipPath id="cert-inner"><rect x="25" y="25" width="459" height="692" rx="2"/></clipPath>
+              <rect id="cert-security-frame" x="47" y="34" width="415" height="674" rx="4"/>
+              <clipPath id="cert-inner"><rect x="22" y="22" width="465" height="698" rx="2"/></clipPath>
             </defs>
             <rect width="509" height="742" fill="url(#cert-paper)"/>
-            <rect x="7" y="7" width="495" height="728" fill="url(#cert-diamond)" opacity=".9"/>
-            <rect x="22" y="22" width="465" height="698" fill="url(#cert-paper)" stroke="#4f9e62" stroke-width="2"/>
-            <rect x="28" y="28" width="453" height="686" fill="url(#cert-glow)" stroke="#7abd82" stroke-width="1"/>
-            <rect x="29" y="29" width="451" height="684" fill="url(#cert-fine)" opacity=".52"/>
-            <g clip-path="url(#cert-inner)" fill="none" stroke="#4c9e61" opacity=".19">
+            <rect x="7" y="7" width="495" height="728" fill="url(#cert-diamond)" opacity=".66"/>
+            <rect x="18" y="18" width="473" height="706" fill="url(#cert-paper)" stroke="#4b9860" stroke-width="1.6"/>
+            <rect x="25" y="25" width="459" height="692" fill="url(#cert-glow)" stroke="#6cac78" stroke-width="1"/>
+            <rect x="26" y="26" width="457" height="690" fill="url(#cert-fine)" opacity=".58"/>
+            <g clip-path="url(#cert-inner)" fill="none" stroke="#438e59" stroke-width="1.25" opacity=".34">
+              <use href="#cert-security-frame" transform="rotate(-14 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(-12 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(-10 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(-8 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(-6 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(-4 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(-2 254.5 371)"/>
+              <use href="#cert-security-frame"/>
+              <use href="#cert-security-frame" transform="rotate(2 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(4 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(6 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(8 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(10 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(12 254.5 371)"/>
+              <use href="#cert-security-frame" transform="rotate(14 254.5 371)"/>
+            </g>
+            <g clip-path="url(#cert-inner)" fill="none" stroke="#4c9e61" opacity=".15">
               <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2"/>
               <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(10 254.5 370)"/>
               <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(20 254.5 370)"/>
@@ -154,7 +173,7 @@
           <div class="approval-certificate__content">
             <div data-id="pg001_n0007" class="approval-certificate__country text-[18px] font-bold uppercase leading-snug tracking-wide text-green-800 max-sm:text-[10px]">THE UNITED REPUBLIC OF TANZANIA</div>
             <div data-id="pg001_n0008" class="approval-certificate__ministry text-[17px] font-bold uppercase leading-snug tracking-wide text-green-800 max-sm:text-[9px]">MINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY</div>
-            <div data-id="pg001_n0009" class="approval-certificate__title text-[32px] italic text-red-500 max-sm:text-[18px]" style="font-family:'Brush Script MT','Segoe Script',cursive;text-shadow:0 1px 0 white;">Certificate of Approval</div>
+            <div data-id="pg001_n0009" class="approval-certificate__title text-[32px] italic max-sm:text-[18px]" style="color:#ef5f72;font-family:'Brush Script MT','Segoe Script',cursive;text-shadow:0 1px 0 white;-webkit-text-stroke:.7px white;paint-order:stroke fill;">Certificate of Approval</div>
             <div data-id="pg001_n0010" class="approval-certificate__number text-right text-[14px] font-semibold text-green-800 max-sm:text-[8px]">No. 1620</div>
             <div class="approval-certificate__fields">
               <div class="approval-certificate__field"><span data-id="pg001_n0011">Title of Publication: Mathematics Pupil&apos;s Book Standard Four</span></div>
@@ -162,8 +181,8 @@
               <div class="approval-certificate__field"><span data-id="pg001_n0013">Author: Tanzania Institute of Education</span></div>
               <div class="approval-certificate__field"><span data-id="pg001_n0014">ISBN: 978-9912-753-75-4</span></div>
             </div>
-            <div data-id="pg001_n0015" class="approval-certificate__approval text-left text-[13px] leading-[1.65] text-green-800 max-sm:text-[7.5px]">This book was approved by the Ministry of Education, Science and Technology on 11th September 2024, as a Textbook for Standard Four in Primary Schools in Tanzania as per 2023 Syllabus.</div>
-            <svg class="approval-certificate__signature h-12 w-44 max-sm:h-7 max-sm:w-24" viewBox="0 0 176 48" aria-hidden="true">
+            <div data-id="pg001_n0015" class="approval-certificate__approval text-left text-[12px] leading-[1.62] text-green-800 max-sm:text-[7px]">This book was approved by the Ministry of Education, Science and Technology on 11th September 2024, as a Textbook for Standard Four in Primary Schools in Tanzania as per 2023 Syllabus.</div>
+            <svg class="approval-certificate__signature h-11 w-36 max-sm:h-7 max-sm:w-24" viewBox="0 0 176 48" aria-hidden="true">
               <path d="M7 31c7-22 12 8 20-7 8-16 5 17 16 3 8-10 2-21 10-15 9 8 2 25 16 10 7-8 5 17 17 4 9-10 14-16 8 1-6 16 10 17 19 4 10-10 14-20 11-4-2 12 13 17 28 5 18-8 28-7 34-3" fill="none" stroke="#2f68a8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M5 39c32-2 70-2 104 0" fill="none" stroke="#2f68a8" stroke-width=".75" opacity=".7"/>
             </svg>
@@ -188,7 +207,7 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=50"></script>
+    <script src="./assets/offline-preloader.js?v=51"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
