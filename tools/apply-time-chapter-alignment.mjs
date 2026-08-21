@@ -48,6 +48,9 @@ for (const [files, pairs] of replacements) {
     for (const [from, to] of pairs) {
       html = html.split(from).join(to);
     }
+    html = html
+      .replace(/\b(time-number-grid)(?:\s+\1)+/g, "$1")
+      .replace(/\b(time-operator-row)(?:\s+\1)+/g, "$1");
     fs.writeFileSync(file, html);
   }
 }
@@ -58,8 +61,10 @@ for (const file of fs.readdirSync(".").filter((name) => name.endsWith(".html")))
   let html = fs.readFileSync(file, "utf8");
   html = html
     .replaceAll("book-layout.css?v=1", "book-layout.css?v=2")
-    .replaceAll("offline-preloader.js?v=87", "offline-preloader.js?v=88")
-    .replaceAll("fraction-tts-guard.js?v=87", "fraction-tts-guard.js?v=88");
+    .replaceAll("offline-preloader.js?v=87", "offline-preloader.js?v=89")
+    .replaceAll("offline-preloader.js?v=88", "offline-preloader.js?v=89")
+    .replaceAll("fraction-tts-guard.js?v=87", "fraction-tts-guard.js?v=89")
+    .replaceAll("fraction-tts-guard.js?v=88", "fraction-tts-guard.js?v=89");
   fs.writeFileSync(file, html);
 }
 
