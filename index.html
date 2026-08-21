@@ -1,218 +1,55 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mathematics Pupil's Book Standard Four</title>
-    <meta name="title-id" content="pg001_sec001" />
-    <meta name="page-section-id" content="1" />
-    <link href="./content/tailwind_output.css" rel="stylesheet">
-    <link href="./assets/libs/fontawesome/css/all.min.css" rel="stylesheet">
-    <link href="./assets/fonts.css" rel="stylesheet">
-    <link href="./assets/book-layout.css?v=2" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&amp;display=swap" rel="stylesheet">
-
-    <style>
-      body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
-      .approval-certificate {
-        position: relative;
-        width: 509px;
-        max-width: 100%;
-        aspect-ratio: 1060 / 1560;
-        overflow: hidden;
-        color: #0a6d3c;
-        background: #b8dcc6;
-        border: 1px solid #69aa7a;
-        box-shadow: 0 2px 5px rgba(24, 92, 50, .16);
-      }
-      .approval-certificate__content {
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        text-align: center;
-      }
-      .approval-certificate__country,
-      .approval-certificate__ministry,
-      .approval-certificate__title,
-      .approval-certificate__number,
-      .approval-certificate__fields,
-      .approval-certificate__approval,
-      .approval-certificate__signature,
-      .approval-certificate__name,
-      .approval-certificate__role { position: absolute; }
-      .approval-certificate__country { top: 10.8%; left: 8%; right: 8%; }
-      .approval-certificate__ministry { top: 16.3%; left: 19%; right: 19%; }
-      .approval-certificate__title { top: 31.1%; left: 8%; right: 8%; }
-      .approval-certificate__number { top: 39.1%; right: 9%; }
-      .approval-certificate__fields { top: 49%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__approval { top: 65.9%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__signature { top: 80.8%; left: 8.5%; }
-      .approval-certificate__name { top: 87.7%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__role { top: 91.5%; left: 8.5%; right: 8.5%; }
-      .approval-certificate__field {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        align-items: end;
-        column-gap: 7px;
-        margin-top: 7px;
-        text-align: left;
-        font-size: 11.5px;
-        line-height: 1.1;
-      }
-      .approval-certificate__field::after {
-        content: "";
-        grid-column: 2;
-        grid-row: 1;
-        align-self: end;
-        border-bottom: 2px dotted rgba(10, 109, 60, .62);
-        transform: translateY(2px);
-      }
-      .approval-certificate__field > span {
-        position: relative;
-        z-index: 1;
-        grid-column: 1 / 3;
-        grid-row: 1;
-        padding-right: 3px;
-        background: linear-gradient(to right, transparent 0, transparent 31%, rgba(184, 220, 198, .84) 31%, rgba(184, 220, 198, .84) 100%);
-      }
-      @media (max-width: 640px) {
-        .approval-certificate { width: 300px; }
-        .approval-certificate__field { margin-top: 5px; font-size: 7.5px; column-gap: 4px; }
-      }
-    </style></head>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mathematics Pupil's Book Standard Four</title>
+  <meta name="title-id" content="pg001_sec001" />
+  <meta name="page-section-id" content="1" />
+  <link href="./content/tailwind_output.css" rel="stylesheet" />
+  <link href="./assets/libs/fontawesome/css/all.min.css" rel="stylesheet" />
+  <link href="./assets/fonts.css" rel="stylesheet" />
+  <link href="./assets/book-layout.css?v=3" rel="stylesheet" />
+  <style>
+    body { margin: 0; min-height: 100vh; background: white; }
+    #content { box-sizing: border-box; width: 100%; padding: 1.5rem; }
+    .clean-cover-page { display: block; width: 722px; max-width: 100%; height: auto; margin: 0 auto; }
+    @media (max-width: 640px) { #content { padding: .75rem; } }
+  </style>
+</head>
 <body class="min-h-screen flex items-center justify-center">
-    <main class="w-full">
-      <div id="content" class="container mx-auto bg-white px-8 py-6 max-lg:px-6 max-sm:px-4 opacity-0">
-  <section data-section-type="front_cover" data-section-id="pg001_sec001" class="relative min-h-[1450px] overflow-hidden bg-white font-sans max-lg:min-h-[1200px] max-sm:min-h-[1080px]">
-    <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-lime-100/60 via-lime-50/20 to-transparent"></div>
-    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-lime-100/60 via-lime-50/20 to-transparent"></div>
-
-    <div class="relative z-10 flex flex-col items-center px-6 pt-24 pb-28 max-lg:pt-16 max-lg:pb-24 max-sm:px-4 max-sm:pt-10 max-sm:pb-20">
-      <h1 data-id="pg001_n0002" class="text-center text-[122px] leading-[0.95] font-light tracking-tight text-green-400 max-lg:text-[86px] max-sm:text-[50px]">Mathematics</h1>
-
-      <div class="mt-16 flex flex-col items-center max-lg:mt-12 max-sm:mt-8">
-        <div data-id="pg001_n0004" class="text-center text-[76px] leading-none font-normal text-zinc-900 max-lg:text-[58px] max-sm:text-[32px]">Pupil&apos;s Book</div>
-        <div data-id="pg001_n0005" class="mt-3 text-center text-[66px] leading-none font-light text-green-400 max-lg:text-[50px] max-sm:text-[30px]">Standard Four</div>
-      </div>
-
-      <div class="mt-8 flex w-full flex-col items-center">
-        <span id="certificate-description" data-id="pg001_n0006" class="sr-only">A pale green official certificate with an ornate interwoven security border, a fine central guilloche pattern, green lettering, a red script title, and a blue signature.</span>
-        <div class="approval-certificate mt-5" role="group" aria-label="Certificate of Approval" aria-describedby="certificate-description">
-          <img src="images/pg001_certificate_clean.png" alt="" aria-hidden="true" class="absolute inset-0 z-[3] h-full w-full object-contain" />
-          <svg class="absolute inset-0 h-full w-full" viewBox="0 0 509 742" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="cert-paper" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#cce8d2"/>
-                <stop offset=".48" stop-color="#a8d2ba"/>
-                <stop offset="1" stop-color="#c8e5cf"/>
-              </linearGradient>
-              <radialGradient id="cert-glow" cx="50%" cy="47%" r="63%">
-                <stop offset="0" stop-color="#eef8dc" stop-opacity=".92"/>
-                <stop offset=".58" stop-color="#b4dcae" stop-opacity=".22"/>
-                <stop offset="1" stop-color="#70b67c" stop-opacity=".13"/>
-              </radialGradient>
-              <pattern id="cert-diamond" width="18" height="18" patternUnits="userSpaceOnUse">
-                <path d="M0 9 9 0 18 9 9 18Z" fill="none" stroke="#318b58" stroke-width="1.1" opacity=".72"/>
-                <path d="M3 9 9 3 15 9 9 15Z" fill="none" stroke="#72b87c" stroke-width=".75" opacity=".75"/>
-              </pattern>
-              <pattern id="cert-fine" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <path d="M0 2H13M0 7H13M0 12H13" stroke="#5aa66b" stroke-width=".45" opacity=".35"/>
-              </pattern>
-              <rect id="cert-security-frame" x="47" y="34" width="415" height="674" rx="4"/>
-              <clipPath id="cert-inner"><rect x="22" y="22" width="465" height="698" rx="2"/></clipPath>
-            </defs>
-            <rect width="509" height="742" fill="url(#cert-paper)"/>
-            <rect x="7" y="7" width="495" height="728" fill="url(#cert-diamond)" opacity=".66"/>
-            <rect x="18" y="18" width="473" height="706" fill="url(#cert-paper)" stroke="#4b9860" stroke-width="1.6"/>
-            <rect x="25" y="25" width="459" height="692" fill="url(#cert-glow)" stroke="#6cac78" stroke-width="1"/>
-            <rect x="26" y="26" width="457" height="690" fill="url(#cert-fine)" opacity=".58"/>
-            <g clip-path="url(#cert-inner)" fill="none" stroke="#438e59" stroke-width="1.25" opacity=".34">
-              <use href="#cert-security-frame" transform="rotate(-14 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(-12 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(-10 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(-8 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(-6 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(-4 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(-2 254.5 371)"/>
-              <use href="#cert-security-frame"/>
-              <use href="#cert-security-frame" transform="rotate(2 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(4 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(6 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(8 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(10 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(12 254.5 371)"/>
-              <use href="#cert-security-frame" transform="rotate(14 254.5 371)"/>
-            </g>
-            <g clip-path="url(#cert-inner)" fill="none" stroke="#4c9e61" opacity=".15">
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(10 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(20 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(30 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(40 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(50 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(60 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(70 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(80 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(90 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(100 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(110 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(120 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(130 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(140 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(150 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(160 254.5 370)"/>
-              <ellipse cx="254.5" cy="370" rx="286" ry="68" stroke-width="1.2" transform="rotate(170 254.5 370)"/>
-            </g>
-            <g fill="none" stroke="#397e4f" opacity=".33">
-              <path d="M28 52C110 10 399 10 481 52M28 690C110 732 399 732 481 690"/>
-              <path d="M52 28C10 116 10 626 52 714M457 28C499 116 499 626 457 714"/>
-            </g>
-          </svg>
-          <div class="approval-certificate__content">
-            <div data-id="pg001_n0007" class="approval-certificate__country text-[18px] font-bold uppercase leading-snug tracking-wide text-green-800 max-sm:text-[10px]">THE UNITED REPUBLIC OF TANZANIA</div>
-            <div data-id="pg001_n0008" class="approval-certificate__ministry text-[17px] font-bold uppercase leading-snug tracking-wide text-green-800 max-sm:text-[9px]">MINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY</div>
-            <div data-id="pg001_n0009" class="approval-certificate__title text-[32px] italic max-sm:text-[18px]" style="color:#ef5f72;font-family:'Brush Script MT','Segoe Script',cursive;text-shadow:0 1px 0 white;-webkit-text-stroke:.7px white;paint-order:stroke fill;">Certificate of Approval</div>
-            <div data-id="pg001_n0010" class="approval-certificate__number text-right text-[14px] font-semibold text-green-800 max-sm:text-[8px]">No. 1620</div>
-            <div class="approval-certificate__fields">
-              <div class="approval-certificate__field"><span data-id="pg001_n0011">Title of Publication: Mathematics Pupil&apos;s Book Standard Four</span></div>
-              <div class="approval-certificate__field"><span data-id="pg001_n0012">Publisher: Tanzania Institute of Education</span></div>
-              <div class="approval-certificate__field"><span data-id="pg001_n0013">Author: Tanzania Institute of Education</span></div>
-              <div class="approval-certificate__field"><span data-id="pg001_n0014">ISBN: 978-9912-753-75-4</span></div>
-            </div>
-            <div data-id="pg001_n0015" class="approval-certificate__approval text-left text-[12px] leading-[1.62] text-green-800 max-sm:text-[7px]">This book was approved by the Ministry of Education, Science and Technology on 11th September 2024, as a Textbook for Standard Four in Primary Schools in Tanzania as per 2023 Syllabus.</div>
-            <svg class="approval-certificate__signature h-11 w-36 max-sm:h-7 max-sm:w-24" viewBox="0 0 176 48" aria-hidden="true">
-              <path d="M7 31c7-22 12 8 20-7 8-16 5 17 16 3 8-10 2-21 10-15 9 8 2 25 16 10 7-8 5 17 17 4 9-10 14-16 8 1-6 16 10 17 19 4 10-10 14-20 11-4-2 12 13 17 28 5 18-8 28-7 34-3" fill="none" stroke="#2f68a8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 39c32-2 70-2 104 0" fill="none" stroke="#2f68a8" stroke-width=".75" opacity=".7"/>
-            </svg>
-            <div data-id="pg001_n0016" class="approval-certificate__name text-left text-[13px] font-bold text-zinc-900 max-sm:text-[7.5px]">Dr Lyabwene M. Mtahabwa</div>
-            <div data-id="pg001_n0017" class="approval-certificate__role text-left text-[12px] text-green-900 max-sm:text-[7px]">Commissioner for Education</div>
-          </div>
+  <main class="w-full">
+    <h1 class="sr-only" id="page-heading">Mathematics Pupil's Book Standard Four</h1>
+    <div id="content" class="opacity-0">
+      <section data-section-type="front_cover" data-section-id="pg001_sec001" aria-labelledby="page-heading">
+        <div class="sr-only">
+          <span data-id="pg001_n0002">Mathematics</span>
+          <span data-id="pg001_n0004">Pupil's Book</span>
+          <span data-id="pg001_n0005">Standard Four</span>
         </div>
-      </div>
-
-      <div data-id="pg001_n0018" class="mt-8 text-center text-[38px] font-semibold text-zinc-900 max-lg:text-[31px] max-sm:text-[20px]">Tanzania Institute of Education</div>
+        <img class="clean-cover-page" data-id="pg001_n0006" src="images/pg001_cover_clean.png" alt="A watermark-free cover for Mathematics Pupil's Book Standard Four showing the official Certificate of Approval." />
+        <div class="sr-only">
+          <span data-id="pg001_n0007">THE UNITED REPUBLIC OF TANZANIA</span>
+          <span data-id="pg001_n0008">MINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY</span>
+          <span data-id="pg001_n0009">Certificate of Approval</span>
+          <span data-id="pg001_n0010">No. 1620</span>
+          <span data-id="pg001_n0011">Title of Publication: Mathematics Pupil's Book Standard Four</span>
+          <span data-id="pg001_n0012">Publisher: Tanzania Institute of Education</span>
+          <span data-id="pg001_n0013">Author: Tanzania Institute of Education</span>
+          <span data-id="pg001_n0014">ISBN: 978-9912-753-75-4</span>
+          <span data-id="pg001_n0015">This book was approved by the Ministry of Education, Science and Technology on 11th September 2024, as a Textbook for Standard Four in Primary Schools in Tanzania as per 2023 Syllabus.</span>
+          <span data-id="pg001_n0016">Dr Lyabwene M. Mtahabwa</span>
+          <span data-id="pg001_n0017">Commissioner for Education</span>
+          <span data-id="pg001_n0018">Tanzania Institute of Education</span>
+        </div>
+      </section>
     </div>
-
-    
-
-    <div class="absolute bottom-2 left-8 right-8 flex items-end justify-between text-[20px] text-black max-lg:text-[16px] max-sm:left-4 max-sm:right-4 max-sm:text-[11px]">
-      
-      
-    </div>
-  </section>
-</div>
-    </main>
-
-    <div class="relative z-50" id="interface-container"></div>
-    <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=100"></script>
-    <script src="./assets/fraction-tts-guard.js?v=100"></script>
-    <script src="./assets/scorm.js"></script>
-    <script src="./assets/base.bundle.local.js"></script>
+  </main>
+  <div class="relative z-50" id="interface-container"></div>
+  <div class="relative z-50" id="nav-container"></div>
+  <script src="./assets/offline-preloader.js?v=101"></script>
+  <script src="./assets/fraction-tts-guard.js?v=101"></script>
+  <script src="./assets/scorm.js"></script>
+  <script src="./assets/base.bundle.local.js"></script>
 </body>
-
 </html>
