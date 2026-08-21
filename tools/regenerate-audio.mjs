@@ -22,6 +22,7 @@ const romanNumeralsOnly = args.has('--roman-numerals-only');
 const questionNumbersOnly = args.has('--question-numbers-only');
 const stepNumbersOnly = args.has('--step-numbers-only');
 const answerLinesOnly = args.has('--answer-lines-only');
+const fractionsOnly = args.has('--fractions-only');
 const voice = valueAfter('--voice') ?? 'coral';
 const model = valueAfter('--model') ?? 'gpt-4o-mini-tts';
 const instructions = valueAfter('--instructions') ??
@@ -200,6 +201,7 @@ function speakable(text, stepNumbered = false) {
 const texts = JSON.parse(await fs.readFile(textPath, 'utf8'));
 const audioMap = JSON.parse(await fs.readFile(audioMapPath, 'utf8'));
 const stepNumberIds = findStepNumberIds(texts);
+const fractionSource = /<mfrac\b|[½¼¾⅓⅔⅛⅜⅝⅞]/i;
 const allJobs = Object.entries(audioMap)
   .map(([id, filename]) => ({ id, filename, text: speakable(texts[id], stepNumberIds.has(id)) }))
   .filter(job => idPrefixes.length === 0 || idPrefixes.some(prefix => job.id.startsWith(prefix)))
@@ -209,11 +211,11 @@ const allJobs = Object.entries(audioMap)
   .filter(job => !stepNumbersOnly || stepNumberIds.has(job.id))
   .filter(job => !romanNumeralsOnly || /\b[IVXLCDM]+\b/.test(plainText(texts[job.id])))
   .filter(job => !answerLinesOnly || /\banswer-line\b/i.test(String(texts[job.id])))
+  .filter(job => !fractionsOnly || fractionSource.test(String(texts[job.id])))
   .filter(job => job.text.length > 0);
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 
 if (args.has('--audit-math-speech')) {
-  const fractionSource = /<mfrac\b|[½¼¾⅓⅔⅛⅜⅝⅞]/i;
   const divisionSource = /⟌|<menclose\b[^>]*\bnotation=["']top["'][^>]*>\s*<mrow>\s*<mo[^>]*>\)<\/mo>/i;
   const fractions = allJobs.filter(job => fractionSource.test(texts[job.id]));
   const divisions = allJobs.filter(job => divisionSource.test(texts[job.id]));
@@ -229,7 +231,7 @@ if (args.has('--audit-math-speech')) {
 }
 
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, romanNumeralsOnly, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
+  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, romanNumeralsOnly, fractionsOnly, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
   process.exit(0);
 }
 
