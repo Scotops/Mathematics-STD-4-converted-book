@@ -18,6 +18,28 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+      [data-id="pg090_n0021"], [data-id="pg090_n0024"],
+      [data-id="pg090_n0027"], [data-id="pg090_n0030"] {
+        color: transparent !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+      }
+      [data-id="pg090_n0021"]::after, [data-id="pg090_n0024"]::after,
+      [data-id="pg090_n0027"]::after, [data-id="pg090_n0030"]::after {
+        display: block;
+        color: #111827;
+        font-size: 1.25rem;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      [data-id="pg090_n0021"]::after { content: "40 cm"; }
+      [data-id="pg090_n0024"]::after { content: "32 m"; }
+      [data-id="pg090_n0027"]::after { content: "21 m"; }
+      [data-id="pg090_n0030"]::after { content: "45 cm"; }
+      @media (max-width: 600px) {
+        [data-id="pg090_n0021"]::after, [data-id="pg090_n0024"]::after,
+        [data-id="pg090_n0027"]::after, [data-id="pg090_n0030"]::after { font-size: 1.125rem; }
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -27,7 +49,7 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=68"></script>
+    <script src="./assets/offline-preloader.js?v=69"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
