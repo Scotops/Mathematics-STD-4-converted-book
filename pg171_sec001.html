@@ -11,7 +11,7 @@
     <link href="./assets/exercise-print.css?v=32" rel="stylesheet">
     <link href="./assets/libs/fontawesome/css/all.min.css" rel="stylesheet">
     <link href="./assets/fonts.css" rel="stylesheet">
-    <link href="./assets/book-layout.css?v=3" rel="stylesheet">
+    <link href="./assets/book-layout.css?v=4" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&amp;display=swap" rel="stylesheet">
@@ -34,10 +34,17 @@
       <div class="relative z-10 p-6 max-lg:p-4 max-sm:p-3">
         <div class="mb-6 inline-block rounded-tl-2xl rounded-tr-3xl rounded-br-none rounded-bl-2xl border-2 border-cyan-500 bg-gradient-to-b from-cyan-200 to-cyan-300 px-5 py-2 text-left text-2xl font-bold max-lg:text-xl max-sm:text-lg" data-id="pg171_n0011">Example 1</div>
 
-        <div class="mb-8 ml-6 w-48 text-left text-[24px] leading-tight max-lg:ml-2 max-sm:w-40 max-sm:text-xl">
-          <div class="mb-2 whitespace-pre" data-id="pg171_n0012">shs cts</div>
-          <div class="mb-2 whitespace-pre" data-id="pg171_n0013">50 05</div>
-          <div class="mb-2 whitespace-pre" data-id="pg171_n0014">&#xd7; 6</div>
+        <div class="mb-8 ml-6 text-[24px] max-lg:ml-2 max-sm:text-xl">
+          <span class="sr-only" data-id="pg171_n0012">shs cts</span>
+          <span class="sr-only" data-id="pg171_n0013">50 05</span>
+          <span class="sr-only" data-id="pg171_n0014">&#xd7; 6</span>
+          <div class="currency-stack" aria-hidden="true">
+            <div class="currency-row currency-labels"><span></span><span>shs</span><span>cts</span></div>
+            <div class="currency-row"><span></span><span>50</span><span>05</span></div>
+            <div class="currency-row"><span>&#xd7;</span><span></span><span>6</span></div>
+            <div class="currency-rule"></div>
+            <div class="currency-rule answer"></div>
+          </div>
         </div>
 
         <div class="grid grid-cols-[2.3fr_1fr] border border-cyan-400 bg-white/90 max-lg:grid-cols-1">
@@ -50,11 +57,19 @@
           </div>
           <div class="p-4">
             <div class="mb-4 text-left text-2xl font-bold max-lg:text-xl max-sm:text-lg" data-id="pg171_n0019">Solution</div>
-            <div class="text-left text-[22px] leading-tight max-lg:text-xl max-sm:text-base">
-              <div class="mb-2 whitespace-pre" data-id="pg171_n0020">shs cts</div>
-              <div class="mb-2 whitespace-pre" data-id="pg171_n0021">50 05</div>
-              <div class="mb-2 whitespace-pre" data-id="pg171_n0022">&#xd7; 6</div>
-              <div class="whitespace-pre" data-id="pg171_n0023">30</div>
+            <div class="text-left text-[22px] max-lg:text-xl max-sm:text-base">
+              <span class="sr-only" data-id="pg171_n0020">shs cts</span>
+              <span class="sr-only" data-id="pg171_n0021">50 05</span>
+              <span class="sr-only" data-id="pg171_n0022">&#xd7; 6</span>
+              <span class="sr-only" data-id="pg171_n0023">30</span>
+              <div class="currency-stack" aria-hidden="true">
+                <div class="currency-row currency-labels"><span></span><span>shs</span><span>cts</span></div>
+                <div class="currency-row"><span></span><span>50</span><span>05</span></div>
+                <div class="currency-row"><span>&#xd7;</span><span></span><span>6</span></div>
+                <div class="currency-rule"></div>
+                <div class="currency-row"><span></span><span></span><span>30</span></div>
+                <div class="currency-rule answer"></div>
+              </div>
             </div>
           </div>
 
@@ -65,11 +80,19 @@
             </div>
           </div>
           <div class="border-t border-cyan-400 p-4">
-            <div class="text-left text-[22px] leading-tight max-lg:text-xl max-sm:text-base">
-              <div class="mb-2 whitespace-pre" data-id="pg171_n0028">shs cts</div>
-              <div class="mb-2 whitespace-pre" data-id="pg171_n0029">50 05</div>
-              <div class="mb-2 whitespace-pre" data-id="pg171_n0030">&#xd7; 6</div>
-              <div class="whitespace-pre" data-id="pg171_n0031">300 30</div>
+            <div class="text-left text-[22px] max-lg:text-xl max-sm:text-base">
+              <span class="sr-only" data-id="pg171_n0028">shs cts</span>
+              <span class="sr-only" data-id="pg171_n0029">50 05</span>
+              <span class="sr-only" data-id="pg171_n0030">&#xd7; 6</span>
+              <span class="sr-only" data-id="pg171_n0031">300 30</span>
+              <div class="currency-stack" aria-hidden="true">
+                <div class="currency-row currency-labels"><span></span><span>shs</span><span>cts</span></div>
+                <div class="currency-row"><span></span><span>50</span><span>05</span></div>
+                <div class="currency-row"><span>&#xd7;</span><span></span><span>6</span></div>
+                <div class="currency-rule"></div>
+                <div class="currency-row"><span></span><span>300</span><span>30</span></div>
+                <div class="currency-rule answer"></div>
+              </div>
             </div>
           </div>
 

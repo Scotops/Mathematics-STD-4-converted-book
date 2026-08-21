@@ -272,3 +272,75 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   section[data-section-id="pg177_sec001"] .fitb-sentence { white-space: normal; }
   section[data-section-id="pg180_sec001"] .flex-1 { width: 12rem !important; }
 }
+
+/* Stable Tanzanian-currency arithmetic.  The visible grid is deliberately
+   separate from the read-aloud text so word highlighting cannot move digits. */
+.currency-stack {
+  --currency-shs: 7ch;
+  --currency-cts: 3.5ch;
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  flex-direction: column;
+  gap: .18rem;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+.currency-stack.wide { --currency-shs: 8ch; }
+.currency-stack .currency-row {
+  display: grid;
+  grid-template-columns: 1.25em var(--currency-shs) var(--currency-cts);
+  column-gap: .45rem;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.currency-stack .currency-row > :nth-child(1) { text-align: left; }
+.currency-stack .currency-row > :nth-child(2),
+.currency-stack .currency-row > :nth-child(3) { text-align: right; }
+.currency-stack .currency-labels > :nth-child(2),
+.currency-stack .currency-labels > :nth-child(3) { text-align: center; }
+.currency-stack .currency-rule {
+  width: calc(var(--currency-shs) + var(--currency-cts) + .45rem);
+  margin: .18rem 0 .36rem 1.7em;
+  border-top: 1.5px solid #374151;
+}
+.currency-stack .currency-rule.answer { margin-top: .28rem; }
+
+.currency-longdiv {
+  --currency-dividend: 7ch;
+  --currency-cents: 3.5ch;
+  display: grid;
+  grid-template-columns: max-content var(--currency-dividend) var(--currency-cents);
+  width: max-content;
+  max-width: 100%;
+  align-items: end;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.18;
+  white-space: nowrap;
+}
+.currency-longdiv.wide { --currency-dividend: 8ch; }
+.currency-longdiv .currency-label {
+  padding-bottom: .25rem;
+  text-align: center;
+}
+.currency-longdiv .currency-divisor { padding-right: .12rem; text-align: right; }
+.currency-longdiv .currency-dividend,
+.currency-longdiv .currency-cents {
+  border-bottom: 1.5px solid #374151;
+  padding: 0 .08rem .16rem;
+  text-align: right;
+}
+.currency-longdiv .currency-result {
+  padding-top: .24rem;
+  text-align: right;
+}
+.currency-longdiv .currency-result.cents { grid-column: 3; }
+.currency-longdiv .currency-result.shillings { grid-column: 2; }
+.currency-longdiv .currency-result.full { grid-column: 2 / 4; }
+
+@media (max-width: 40rem) {
+  .currency-stack,
+  .currency-longdiv { font-size: .95em; }
+}
