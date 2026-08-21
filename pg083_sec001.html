@@ -18,6 +18,60 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+      section[data-section-id="pg083_sec001"] .revision-grid {
+        column-gap: 4.5rem !important;
+        row-gap: 3.75rem !important;
+      }
+      section[data-section-id="pg083_sec001"] .revision-item {
+        align-items: flex-start;
+      }
+      section[data-section-id="pg083_sec001"] .revision-calc {
+        width: 12rem;
+        max-width: 100%;
+        color: #111827;
+        font-variant-numeric: tabular-nums lining-nums;
+      }
+      section[data-section-id="pg083_sec001"] .revision-calc.cols-3 { width: 15rem; }
+      section[data-section-id="pg083_sec001"] .revision-calc.cols-4 { width: 19rem; }
+      section[data-section-id="pg083_sec001"] .measurement-grid {
+        position: relative;
+        display: grid;
+        align-items: baseline;
+        width: 100%;
+        text-align: right;
+      }
+      section[data-section-id="pg083_sec001"] .measurement-grid.cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 1.45rem; }
+      section[data-section-id="pg083_sec001"] .measurement-grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); column-gap: .9rem; }
+      section[data-section-id="pg083_sec001"] .measurement-grid.cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); column-gap: .72rem; }
+      section[data-section-id="pg083_sec001"] .measurement-units {
+        margin-bottom: .55rem;
+        font-size: 1.55rem;
+        font-weight: 600;
+        line-height: 1.05;
+        text-align: center;
+      }
+      section[data-section-id="pg083_sec001"] .measurement-values {
+        font-size: 1.72rem;
+        line-height: 1.32;
+      }
+      section[data-section-id="pg083_sec001"] .measurement-operation {
+        padding-bottom: .18rem;
+        border-bottom: 1.5px solid #111827;
+      }
+      section[data-section-id="pg083_sec001"] .measurement-operation::before {
+        position: absolute;
+        left: -.72rem;
+        bottom: .18rem;
+        font-size: 1.72rem;
+      }
+      section[data-section-id="pg083_sec001"] .measurement-operation.minus::before { content: "−"; }
+      section[data-section-id="pg083_sec001"] .measurement-operation.plus::before { content: "+"; }
+      @media (max-width: 900px) {
+        section[data-section-id="pg083_sec001"] .revision-grid { column-gap: 2.5rem !important; }
+      }
+      @media (max-width: 600px) {
+        section[data-section-id="pg083_sec001"] .revision-grid { row-gap: 3rem !important; }
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -30,19 +84,15 @@
     </div>
 
     <div class="rounded-[2rem] bg-green-50 px-12 py-10 shadow-sm max-lg:px-8 max-sm:px-5 max-sm:py-8">
-      <div class="grid grid-cols-2 gap-x-16 gap-y-14 max-sm:grid-cols-1 max-sm:gap-y-12">
-        <div class="flex items-start gap-4">
+      <div class="revision-grid grid grid-cols-2 gap-x-16 gap-y-14 max-sm:grid-cols-1 max-sm:gap-y-12">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0005">1.</span></div>
-          <div class="w-full max-w-[13rem] text-center text-black">
-            <div class="grid grid-cols-2 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0006">L</span>
-              <span data-id="pg083_n0007">mL</span>
-            </div>
-            <div class="mt-3 text-[2.05rem] leading-[1.15] max-sm:text-[1.8rem]">
-              <div data-id="pg083_n0008">75 378</div>
-              <div data-id="pg083_n0009">&#x2212; 53 532</div>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[8.5rem] bg-black"></div>
+          <div class="revision-calc cols-2 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-2"><span>L</span><span>mL</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-2"><span>75</span><span>378</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation minus cols-2"><span>53</span><span>532</span></div>
+            <span class="sr-only" data-id="pg083_n0008">75 litres 378 millilitres</span>
+            <span class="sr-only" data-id="pg083_n0009">minus 53 litres 532 millilitres</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0010"></label>
 
@@ -50,18 +100,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0011">2.</span></div>
-          <div class="w-full max-w-[13rem] text-center text-black">
-            <div class="grid grid-cols-2 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0012">L</span>
-              <span data-id="pg083_n0013">mL</span>
-            </div>
-            <div class="mt-3 text-[2.05rem] leading-[1.15] max-sm:text-[1.8rem]">
-              <div data-id="pg083_n0014">330 600</div>
-              <div data-id="pg083_n0015">+ 130 800</div>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[8.5rem] bg-black"></div>
+          <div class="revision-calc cols-2 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-2"><span>L</span><span>mL</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-2"><span>330</span><span>600</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation plus cols-2"><span>130</span><span>800</span></div>
+            <span class="sr-only" data-id="pg083_n0014">330 litres 600 millilitres</span>
+            <span class="sr-only" data-id="pg083_n0015">plus 130 litres 800 millilitres</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0016"></label>
 
@@ -69,18 +115,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0017">3.</span></div>
-          <div class="w-full max-w-[13rem] text-center text-black">
-            <div class="grid grid-cols-2 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0018">L</span>
-              <span data-id="pg083_n0019">mL</span>
-            </div>
-            <div class="mt-3 text-[2.05rem] leading-[1.15] max-sm:text-[1.8rem]">
-              <div data-id="pg083_n0020">731 116</div>
-              <div data-id="pg083_n0021">+ 123 882</div>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[8.5rem] bg-black"></div>
+          <div class="revision-calc cols-2 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-2"><span>L</span><span>mL</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-2"><span>731</span><span>116</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation plus cols-2"><span>123</span><span>882</span></div>
+            <span class="sr-only" data-id="pg083_n0020">731 litres 116 millilitres</span>
+            <span class="sr-only" data-id="pg083_n0021">plus 123 litres 882 millilitres</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0022"></label>
 
@@ -88,18 +130,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0023">4.</span></div>
-          <div class="w-full max-w-[13rem] text-center text-black">
-            <div class="grid grid-cols-2 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0024">km</span>
-              <span data-id="pg083_n0025">m</span>
-            </div>
-            <div class="mt-3 text-[2.05rem] leading-[1.15] max-sm:text-[1.8rem]">
-              <div data-id="pg083_n0026">12 349</div>
-              <div data-id="pg083_n0027">+ 4 651</div>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[8.5rem] bg-black"></div>
+          <div class="revision-calc cols-2 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-2"><span>km</span><span>m</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-2"><span>12</span><span>349</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation plus cols-2"><span>4</span><span>651</span></div>
+            <span class="sr-only" data-id="pg083_n0026">12 kilometres 349 metres</span>
+            <span class="sr-only" data-id="pg083_n0027">plus 4 kilometres 651 metres</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0028"></label>
 
@@ -107,18 +145,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0029">5.</span></div>
-          <div class="w-full max-w-[13rem] text-center text-black">
-            <div class="grid grid-cols-2 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0030">m</span>
-              <span data-id="pg083_n0031">cm</span>
-            </div>
-            <div class="mt-3 text-[2.05rem] leading-[1.15] max-sm:text-[1.8rem]">
-              <div data-id="pg083_n0032">240 64</div>
-              <div data-id="pg083_n0033">+ 660 95</div>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[8.5rem] bg-black"></div>
+          <div class="revision-calc cols-2 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-2"><span>m</span><span>cm</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-2"><span>240</span><span>64</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation plus cols-2"><span>660</span><span>95</span></div>
+            <span class="sr-only" data-id="pg083_n0032">240 metres 64 centimetres</span>
+            <span class="sr-only" data-id="pg083_n0033">plus 660 metres 95 centimetres</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0034"></label>
 
@@ -126,21 +160,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0035">6.</span></div>
-          <div class="w-full max-w-[14rem] text-center text-black">
-            <div class="grid grid-cols-3 gap-x-4 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0036">km</span>
-              <span data-id="pg083_n0037">m</span>
-              <span data-id="pg083_n0038">cm</span>
-            </div>
-            <div class="mt-3 grid grid-cols-3 gap-x-4 text-[2.05rem] leading-[1.15] max-sm:text-[1.55rem]">
-              <span>14</span><span>700</span><span>00</span>
-            </div>
-            <div class="grid grid-cols-3 gap-x-4 text-[2.05rem] leading-[1.15] max-sm:text-[1.55rem]">
-              <span>&#x2212; 13</span><span>860</span><span>95</span>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[10rem] bg-black"></div>
+          <div class="revision-calc cols-3 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-3"><span>km</span><span>m</span><span>cm</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-3"><span>14</span><span>700</span><span>00</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation minus cols-3"><span>13</span><span>860</span><span>95</span></div>
+            <span class="sr-only" data-id="pg083_n0039">14 kilometres 700 metres 00 centimetres</span>
+            <span class="sr-only" data-id="pg083_n0040">minus 13 kilometres 860 metres 95 centimetres</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0041"></label>
 
@@ -148,18 +175,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0042">7.</span></div>
-          <div class="w-full max-w-[13rem] text-center text-black">
-            <div class="grid grid-cols-2 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0043">t</span>
-              <span data-id="pg083_n0044">kg</span>
-            </div>
-            <div class="mt-3 text-[2.05rem] leading-[1.15] max-sm:text-[1.8rem]">
-              <div data-id="pg083_n0045">12 555</div>
-              <div data-id="pg083_n0046">&#x2212; 8 227</div>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[8.5rem] bg-black"></div>
+          <div class="revision-calc cols-2 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-2"><span>t</span><span>kg</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-2"><span>12</span><span>555</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation minus cols-2"><span>8</span><span>227</span></div>
+            <span class="sr-only" data-id="pg083_n0045">12 tonnes 555 kilograms</span>
+            <span class="sr-only" data-id="pg083_n0046">minus 8 tonnes 227 kilograms</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0047"></label>
 
@@ -167,21 +190,14 @@
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="revision-item flex items-start gap-4">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0048">8.</span></div>
-          <div class="w-full max-w-[14rem] text-center text-black">
-            <div class="grid grid-cols-3 gap-x-4 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0049">kg</span>
-              <span data-id="pg083_n0050">g</span>
-              <span data-id="pg083_n0051">mg</span>
-            </div>
-            <div class="mt-3 grid grid-cols-3 gap-x-4 text-[2.05rem] leading-[1.15] max-sm:text-[1.55rem]">
-              <span>19</span><span>552</span><span>701</span>
-            </div>
-            <div class="grid grid-cols-3 gap-x-4 text-[2.05rem] leading-[1.15] max-sm:text-[1.55rem]">
-              <span>&#x2212; 11</span><span>910</span><span>900</span>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[10rem] bg-black"></div>
+          <div class="revision-calc cols-3 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-3"><span>kg</span><span>g</span><span>mg</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-3"><span>19</span><span>552</span><span>701</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation minus cols-3"><span>11</span><span>910</span><span>900</span></div>
+            <span class="sr-only" data-id="pg083_n0052">19 kilograms 552 grams 701 milligrams</span>
+            <span class="sr-only" data-id="pg083_n0053">minus 11 kilograms 910 grams 900 milligrams</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0054"></label>
 
@@ -189,20 +205,14 @@
           </div>
         </div>
 
-        <div class="col-span-2 flex items-start gap-4 max-sm:col-span-1">
+        <div class="revision-item col-span-2 flex items-start gap-4 max-sm:col-span-1">
           <div class="min-w-[2.25rem] pt-1 text-2xl font-medium text-green-600"><span data-id="pg083_n0055">9.</span></div>
-          <div class="w-full max-w-[18rem] text-center text-black">
-            <div class="grid grid-cols-4 gap-x-4 text-3xl leading-none max-sm:text-2xl">
-              <span data-id="pg083_n0056">t</span>
-              <span data-id="pg083_n0057">kg</span>
-              <span data-id="pg083_n0058">g</span>
-              <span data-id="pg083_n0059">mg</span>
-            </div>
-            <div class="mt-3 grid grid-cols-4 gap-x-4 whitespace-nowrap text-[2.05rem] leading-[1.15] max-sm:text-[1.3rem]">
-              <span>15</span><span>821</span><span>800</span><span>697</span>
-              <span>+ 83</span><span>260</span><span>333</span><span>222</span>
-            </div>
-            <div class="mx-auto mt-1 h-px w-[18rem] max-sm:w-[12rem] bg-black"></div>
+          <div class="revision-calc cols-4 text-center text-black">
+            <div aria-hidden="true" class="measurement-grid measurement-units cols-4"><span>t</span><span>kg</span><span>g</span><span>mg</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values cols-4"><span>15</span><span>821</span><span>800</span><span>697</span></div>
+            <div aria-hidden="true" class="measurement-grid measurement-values measurement-operation plus cols-4"><span>83</span><span>260</span><span>333</span><span>222</span></div>
+            <span class="sr-only" data-id="pg083_n0060">15 tonnes 821 kilograms 800 grams 697 milligrams</span>
+            <span class="sr-only" data-id="pg083_n0061">plus 83 tonnes 260 kilograms 333 grams 222 milligrams</span>
             <div class="mt-10 flex justify-center">
               <label class="sr-only" data-id="pg083_n0062"></label>
 
@@ -217,7 +227,7 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=67"></script>
+    <script src="./assets/offline-preloader.js?v=68"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
