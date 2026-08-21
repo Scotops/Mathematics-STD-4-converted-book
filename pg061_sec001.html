@@ -90,6 +90,40 @@
       section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-36)::after { width: 9rem; }
       section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-44)::after { width: 11rem; }
       section[data-section-id="pg061_sec001"] .flex-1.text-left:has(> .w-48)::after { width: 12rem; }
+      section[data-section-id="pg061_sec001"] .measurement-stack {
+        display: grid;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto;
+        row-gap: .1rem;
+        font-family: 'Atkinson Hyperlegible', sans-serif !important;
+        font-size: 1.45rem;
+        font-variant-numeric: tabular-nums;
+        line-height: 1.35;
+      }
+      section[data-section-id="pg061_sec001"] .measurement-row {
+        display: grid;
+        grid-template-columns: 1.15rem repeat(var(--unit-count), 2.85rem);
+        column-gap: .7rem;
+        align-items: baseline;
+      }
+      section[data-section-id="pg061_sec001"] .measurement-row > span {
+        min-width: 0;
+        text-align: right;
+      }
+      section[data-section-id="pg061_sec001"] .measurement-row.measurement-units > span:not(.measurement-op) {
+        text-align: center;
+      }
+      section[data-section-id="pg061_sec001"] .measurement-op {
+        text-align: center !important;
+      }
+      section[data-section-id="pg061_sec001"] .measurement-rule {
+        margin-top: .15rem;
+        border-top: 2px solid #222;
+      }
+      section[data-section-id="pg061_sec001"] .measurement-enhanced > .text-center + div {
+        display: none !important;
+      }
       @media (max-width: 900px) {
         section[data-section-id="pg061_sec001"] > div > div:nth-child(2) { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
       }
@@ -98,6 +132,7 @@
         section[data-section-id="pg061_sec001"] > div > div:first-child { left: 1.25rem !important; }
         section[data-section-id="pg061_sec001"] [data-id="pg061_n0003"] { min-width: 13rem; font-size: 1.45rem !important; }
         section[data-section-id="pg061_sec001"] > div > div:nth-child(2) { grid-template-columns: 1fr !important; }
+        section[data-section-id="pg061_sec001"] .measurement-stack { font-size: 1.25rem; }
       }
     </style></head>
 
@@ -112,10 +147,67 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=98"></script>
-    <script src="./assets/fraction-tts-guard.js?v=98"></script>
+    <script src="./assets/offline-preloader.js?v=99"></script>
+    <script src="./assets/fraction-tts-guard.js?v=99"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
+    <script>
+      (() => {
+        const items = [
+          ['pg061_n0005', ['cm', 'mm'], [['13', '3'], ['5', '4']], ['', '+']],
+          ['pg061_n0011', ['cm', 'mm'], [['1', '9'], ['3', '2']], ['', '+']],
+          ['pg061_n0017', ['m', 'dm', 'mm'], [['3', '6', '7'], ['7', '5', '9']], ['', '+']],
+          ['pg061_n0023', ['km', 'hm'], [['5', '6'], ['2', '8']], ['', '+']],
+          ['pg061_n0029', ['m', 'cm', 'mm'], [['4', '25', '4'], ['6', '80', '8']], ['', '+']],
+          ['pg061_n0035', ['km', 'dam', 'm'], [['8', '9', '7'], ['5', '8', '4']], ['', '+']],
+          ['pg061_n0041', ['km', 'm', 'cm'], [['4', '40', '26'], ['3', '22', '68'], ['5', '71', '23']], ['', '', '+']],
+          ['pg061_n0048', ['km', 'm'], [['9', '56'], ['6', '48']], ['', '+']],
+          ['pg061_n0054', ['dm', 'cm', 'mm'], [['14', '4', '6'], ['40', '8', '6'], ['12', '3', '1']], ['', '', '+']]
+        ];
+
+        const buildRow = (values, operator, className = '') => {
+          const row = document.createElement('div');
+          row.className = `measurement-row ${className}`.trim();
+          const op = document.createElement('span');
+          op.className = 'measurement-op';
+          op.textContent = operator;
+          row.append(op);
+          values.forEach((value) => {
+            const cell = document.createElement('span');
+            cell.textContent = value;
+            row.append(cell);
+          });
+          return row;
+        };
+
+        const render = () => {
+          items.forEach(([numberId, units, rows, operators]) => {
+            const number = document.querySelector('[data' + '-id="' + numberId + '"]');
+            const item = number?.closest('.flex.items-start');
+            const calculation = item?.querySelector('.flex-1.text-left');
+            const original = calculation?.querySelector('.text-center');
+            if (!calculation || !original || calculation.querySelector('.measurement-stack')) return;
+
+            calculation.classList.add('measurement-enhanced');
+            original.classList.add('sr-only');
+
+            const stack = document.createElement('div');
+            stack.className = 'measurement-stack';
+            stack.setAttribute('aria-hidden', 'true');
+            stack.style.setProperty('--unit-count', units.length);
+            stack.append(buildRow(units, '', 'measurement-units'));
+            rows.forEach((row, index) => stack.append(buildRow(row, operators[index] || '')));
+            const rule = document.createElement('div');
+            rule.className = 'measurement-rule';
+            stack.append(rule);
+            calculation.insertBefore(stack, original);
+          });
+        };
+
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render, { once: true });
+        else render();
+      })();
+    </script>
 </body>
 
 </html>
