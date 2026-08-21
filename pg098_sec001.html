@@ -18,6 +18,18 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+      [data-id="pg098_n0031"], [data-id="pg098_n0033"] { display: none !important; }
+      [data-id="pg098_im001"], [data-id="pg098_im002"] { opacity: 0; }
+      div:has(> [data-id="pg098_im001"])::after,
+      div:has(> [data-id="pg098_im002"])::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        box-sizing: border-box;
+        border: 3px solid #08798b;
+        background: #5bc0df;
+        pointer-events: none;
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -27,7 +39,7 @@
     </main>
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=70"></script>
+    <script src="./assets/offline-preloader.js?v=71"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
