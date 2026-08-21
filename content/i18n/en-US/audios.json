@@ -6826,8 +6826,8 @@
   "pg126_im001": "pg126_im001.mp3?v=43",
   "pg128_im001": "pg128_im001.mp3?v=43",
   "pg129_im001": "pg129_im001.mp3?v=43",
-  "pg132_im006_crop1": "pg132_im006_crop1.mp3?v=43",
-  "pg132_im002_crop_v1_crop1": "pg132_im002_crop_v1_crop1.mp3?v=43",
+  "pg132_im006_crop1": "pg132_im006_crop1.mp3?v=79",
+  "pg132_im002_crop_v1_crop1": "pg132_im002_crop_v1_crop1.mp3?v=79",
   "pg134_im001": "pg134_im001.mp3?v=43",
   "pg139_im001": "pg139_im001.mp3?v=43",
   "pg139_im004_seg002_v1_crop_v1": "pg139_im004_seg002_v1_crop_v1.mp3?v=43",
@@ -6950,5 +6950,7 @@
   "pg111_im002": "pg111_im002.mp3?v=78",
   "pg111_im003": "pg111_im003.mp3?v=78",
   "pg112_im001": "pg112_im001.mp3?v=78",
-  "pg112_im002": "pg112_im002.mp3?v=78"
+  "pg112_im002": "pg112_im002.mp3?v=78",
+  "pg132_im007": "pg132_im007.mp3?v=80",
+  "pg132_im008": "pg132_im008.mp3?v=80"
 }

@@ -6879,8 +6879,8 @@
   "pg126_im001": "A circle divided by a vertical diameter and diagonal radii into fractional sectors.",
   "pg128_im001": "A rectangle divided into five equal parts, with two parts shaded to show two over five.",
   "pg129_im001": "A fraction bar showing tenths within two over five.",
-  "pg132_im006_crop1": "A bar divided into ten equal parts. The first one over ten is shaded and labelled zero point one.",
-  "pg132_im002_crop_v1_crop1": "A fraction bar showing zero point five plus zero point three equals zero point eight.",
+  "pg132_im006_crop1": "An illustration of a pupil thinking, with one hand resting under the chin.",
+  "pg132_im002_crop_v1_crop1": "The diagram shows a rectangular bar divided into ten equal vertical parts. Each part is labelled one over ten. The first part on the left is shaded. A bracket below the shaded part labels it zero point one. This shows that one over ten is equal to zero point one.",
   "pg134_im001": "A hundred-square grid with one square shaded to show one over one hundred.",
   "pg139_im001": "A decimal bar showing zero point five plus zero point three equals zero point eight.",
   "pg139_im004_seg002_v1_crop_v1": "A number line from zero to one. A jump of zero point five followed by zero point three lands at zero point eight.",
@@ -7003,5 +7003,7 @@
   "pg111_im002": "Question number 4 diagram. The composite shape consists of rectangle E F H I and right triangle F G H joined along side F H. The rectangle length E F is 8 centimetres, the shared vertical side F H is 3 centimetres, and the triangle base H G is 4 centimetres.",
   "pg111_im003": "Question number 6 diagram. The shape is triangle P Q R with P at the left end of the base, Q at the right end, and R above. The base P Q is 32 centimetres. The perpendicular height R S is 12 centimetres, with S on the base.",
   "pg112_im001": "Question number 7 diagram. The shape is a square with each side 61 metres long.",
-  "pg112_im002": "Question number 11 diagram. The shape is trapezium A B C D. Along the top side A B, A E is 3 centimetres, E F is 7 centimetres, and F B is 3 centimetres. The sloping side A D is 14 centimetres. Perpendicular lines E D and F C show a height of 4 centimetres."
+  "pg112_im002": "Question number 11 diagram. The shape is trapezium A B C D. Along the top side A B, A E is 3 centimetres, E F is 7 centimetres, and F B is 3 centimetres. The sloping side A D is 14 centimetres. Perpendicular lines E D and F C show a height of 4 centimetres.",
+  "pg132_im007": "An illustration of a pupil thinking, with one hand resting under the chin.",
+  "pg132_im008": "The diagram shows a rectangular bar divided into ten equal vertical parts. Each part is labelled one over ten. The first part on the left is shaded. A bracket below the shaded part labels it zero point one. This shows that one over ten is equal to zero point one."
 }
