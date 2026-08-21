@@ -40,3 +40,43 @@ body > main {
     max-width: 100% !important;
   }
 }
+/* Chapter Nine: keep hour and minute digits vertically aligned while leaving
+   the operation sign to the left of the hours column. */
+.time-number-grid {
+  font-variant-numeric: tabular-nums;
+}
+
+.time-number-grid > :nth-child(3) {
+  transform: translateX(-0.62em);
+}
+
+.time-operator-row {
+  font-variant-numeric: tabular-nums;
+}
+
+.time-operator-row > :first-child {
+  transform: translateX(-0.62em);
+}
+
+.time-fixed-operation {
+  display: grid;
+  grid-template-columns: 1.2rem 3.25rem 4.25rem;
+  column-gap: 0.65rem;
+  align-items: baseline;
+  width: max-content;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-fixed-operation > * {
+  text-align: center;
+}
+
+.time-fixed-operation .time-sign {
+  text-align: right;
+}
+
+.time-fixed-operation .time-rule {
+  grid-column: 1 / -1;
+  width: 100%;
+  border-top: 1px solid currentColor;
+}
