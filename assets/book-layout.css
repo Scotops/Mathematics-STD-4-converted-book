@@ -80,3 +80,195 @@ body > main {
   width: 100%;
   border-top: 1px solid currentColor;
 }
+
+/* Source-book mathematics alignment -------------------------------------- */
+/* Currency multiplication, page 171.  These values must remain in fixed
+   shillings/cents columns while read-aloud highlights individual text IDs. */
+section[data-section-id="pg171_sec001"] :is(
+  [data-id="pg171_n0012"], [data-id="pg171_n0013"], [data-id="pg171_n0014"],
+  [data-id="pg171_n0020"], [data-id="pg171_n0021"], [data-id="pg171_n0022"], [data-id="pg171_n0023"],
+  [data-id="pg171_n0028"], [data-id="pg171_n0029"], [data-id="pg171_n0030"], [data-id="pg171_n0031"]
+) {
+  box-sizing: border-box;
+  width: 8.25rem;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+section[data-section-id="pg171_sec001"] :is(
+  [data-id="pg171_n0012"], [data-id="pg171_n0013"],
+  [data-id="pg171_n0020"], [data-id="pg171_n0021"],
+  [data-id="pg171_n0028"], [data-id="pg171_n0029"], [data-id="pg171_n0031"]
+) {
+  text-align: justify;
+  text-align-last: justify;
+}
+section[data-section-id="pg171_sec001"] :is(
+  [data-id="pg171_n0014"], [data-id="pg171_n0022"], [data-id="pg171_n0030"]
+) {
+  text-align: justify;
+  text-align-last: justify;
+}
+section[data-section-id="pg171_sec001"] [data-id="pg171_n0023"] {
+  border-bottom: 1.5px solid #374151;
+  padding-right: .15rem;
+  padding-bottom: .25rem;
+  text-align: right;
+}
+section[data-section-id="pg171_sec001"] [data-id="pg171_n0031"] {
+  border-bottom: 1.5px solid #374151;
+  padding-bottom: .25rem;
+}
+
+/* Currency multiplication exercise, page 173. */
+section[data-section-id="pg173_sec001"] > div > div.grid > div > div.pt-1 {
+  width: 9rem;
+}
+section[data-section-id="pg173_sec001"] > div > div.grid > div > div.pt-1 > div:nth-child(-n+3) > span {
+  display: block;
+  width: 8.75rem;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0 !important;
+  white-space: nowrap;
+  text-align: justify;
+  text-align-last: justify;
+}
+section[data-section-id="pg173_sec001"] > div > div.grid > div > div.pt-1 > div:nth-child(4) {
+  width: 8.75rem !important;
+}
+
+/* Exercise 4, page 177: plain three-column book layout, without answer cards. */
+section[data-section-id="pg177_sec001"] > .mb-10 {
+  justify-content: flex-start !important;
+  margin-left: 2rem;
+}
+section[data-section-id="pg177_sec001"] > .grid {
+  column-gap: 3.5rem !important;
+  row-gap: 2.2rem !important;
+}
+section[data-section-id="pg177_sec001"] > .grid > div {
+  min-height: 3.6rem;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: .5rem 1rem !important;
+}
+section[data-section-id="pg177_sec001"] .answer-line {
+  display: none !important;
+}
+section[data-section-id="pg177_sec001"] .fitb-sentence {
+  white-space: nowrap;
+}
+section[data-section-id="pg177_sec001"] .book-longdiv {
+  display: inline-grid;
+  grid-template-columns: max-content;
+  vertical-align: middle;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+section[data-section-id="pg177_sec001"] .book-longdiv-label {
+  display: block;
+  margin-left: 1.8rem;
+  margin-bottom: .15rem;
+  font-family: var(--book-font-family);
+  font-size: .68em;
+}
+section[data-section-id="pg177_sec001"] .inline-flex.items-start.font-mono > span:first-child,
+section[data-section-id="pg178_sec001"] .inline-flex.items-start.font-mono > span:first-child,
+section[data-section-id="pg183_sec002"] .inline-flex.items-start.font-mono > span:first-child,
+section[data-section-id="pg184_sec001"] .inline-flex.items-start.font-mono > span:first-child {
+  border-right: 0 !important;
+  padding-right: 0 !important;
+}
+section[data-section-id="pg177_sec001"] .inline-flex.items-start.font-mono > span:first-child::after,
+section[data-section-id="pg178_sec001"] .inline-flex.items-start.font-mono > span:first-child::after,
+section[data-section-id="pg183_sec002"] .inline-flex.items-start.font-mono > span:first-child::after,
+section[data-section-id="pg184_sec001"] .inline-flex.items-start.font-mono > span:first-child::after {
+  content: ")";
+}
+section[data-section-id="pg177_sec001"] .inline-flex.items-start.font-mono > span:nth-child(2),
+section[data-section-id="pg178_sec001"] .inline-flex.items-start.font-mono > span:nth-child(2),
+section[data-section-id="pg183_sec002"] .inline-flex.items-start.font-mono > span:nth-child(2),
+section[data-section-id="pg184_sec001"] .inline-flex.items-start.font-mono > span:nth-child(2) {
+  border-top: 0 !important;
+  border-bottom: 1.5px solid #374151 !important;
+  padding-top: 0 !important;
+  padding-bottom: .15rem;
+}
+section[data-section-id="pg177_sec002"] :is(
+  [data-id="pg177_n0031"], [data-id="pg177_n0032"], [data-id="pg177_n0038"],
+  [data-id="pg177_n0039"], [data-id="pg177_n0043"], [data-id="pg177_n0044"]
+) {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+section[data-section-id="pg177_sec002"] :is(
+  [data-id="pg177_n0032"], [data-id="pg177_n0039"], [data-id="pg177_n0044"]
+) {
+  width: 8.5rem;
+  border-bottom: 1.5px solid #374151;
+  padding-bottom: .3rem;
+}
+
+/* Currency division pages 178-180. */
+section[data-section-id="pg178_sec001"] pre {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+section[data-section-id="pg178_sec001"] .inline-flex.items-start.font-mono + span[aria-hidden="true"] {
+  border-bottom: 1.5px solid #374151;
+  padding-bottom: .15rem;
+}
+section[data-section-id="pg179_sec002"] .grid.grid-cols-2.w-fit {
+  grid-template-columns: minmax(6.4rem, max-content) 3rem !important;
+  column-gap: .85rem !important;
+  width: max-content !important;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+section[data-section-id="pg179_sec002"] .grid.grid-cols-2.w-fit > :last-child {
+  text-align: right;
+}
+section[data-section-id="pg180_sec001"] .flex-1 {
+  flex: 0 0 auto !important;
+  width: 16rem !important;
+}
+section[data-section-id="pg180_sec001"] .flex-1 > .justify-between {
+  width: 13.25rem !important;
+  justify-content: space-between !important;
+}
+section[data-section-id="pg180_sec001"] .flex.items-end > .ml-6 {
+  margin-left: 1rem !important;
+  min-width: 2.2rem;
+  text-align: right;
+}
+
+/* Revision division layout, pages 183-184. */
+section[data-section-id="pg183_sec002"] .inline-flex.items-start.font-mono + div {
+  width: 9rem;
+}
+section[data-section-id="pg184_sec001"] > .mb-8 > .flex-col {
+  width: 13rem;
+}
+section[data-section-id="pg184_sec001"] > .mb-8 > .flex-col > div:first-child,
+section[data-section-id="pg184_sec001"] > .mb-8 > .flex-col > div:nth-child(2) {
+  width: 13rem !important;
+}
+section[data-section-id="pg184_sec001"] .inline-flex.items-start.font-mono + span[aria-hidden="true"] {
+  margin-left: .65rem;
+}
+
+/* Decimal addition: the operator belongs to the left of the second addend. */
+section[data-section-id="pg140_sec001"] .decimal-operation {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+section[data-section-id="pg140_sec001"] .decimal-operation > div {
+  white-space: nowrap;
+}
+
+@media (max-width: 48rem) {
+  section[data-section-id="pg177_sec001"] > .mb-10 { margin-left: 0; }
+  section[data-section-id="pg177_sec001"] .fitb-sentence { white-space: normal; }
+  section[data-section-id="pg180_sec001"] .flex-1 { width: 12rem !important; }
+}
