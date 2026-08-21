@@ -18,6 +18,61 @@
 
     <style>
       body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea, select { font-family: 'Atkinson Hyperlegible','Merriweather',sans-serif; }
+
+      .money-operation {
+        display: grid;
+        grid-template-columns: 2.1rem 8.4rem;
+        width: 10.5rem;
+        color: #111827;
+        font-size: clamp(1.35rem, 2.4vw, 2rem);
+        font-variant-numeric: tabular-nums;
+        line-height: 1.18;
+      }
+
+      .money-operation__full {
+        grid-column: 1 / -1;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .money-operation__operator {
+        text-align: center;
+      }
+
+      .money-operation__amount {
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .money-operation__rule {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: 0.18rem;
+        border-top: 2px solid #111827;
+      }
+
+      .money-operation__answer-space {
+        grid-column: 1 / -1;
+        height: 2.35rem;
+        border-bottom: 2px solid #111827;
+      }
+
+      .money-operation__final-rule {
+        grid-column: 1 / -1;
+        width: 100%;
+        border-top: 2px solid #111827;
+      }
+
+      @media (max-width: 640px) {
+        .money-operation {
+          grid-template-columns: 1.55rem 6.2rem;
+          width: 7.75rem;
+        }
+
+        .money-operation__answer-space {
+          height: 1.8rem;
+        }
+      }
     </style></head>
 
 <body class="min-h-screen flex items-center justify-center">
@@ -33,13 +88,17 @@
 
     <div class="px-12 py-10 text-left max-lg:px-8 max-lg:py-8 max-sm:px-6 max-sm:py-7">
       <div class="mb-6 max-sm:mb-5">
-        <div class="w-[12rem] text-gray-900 max-lg:w-[10.5rem] max-sm:w-[8rem]">
-          <pre class="m-0 font-sans text-[2rem] leading-[1.1] max-lg:text-[1.7rem] max-sm:text-[1.15rem]"><span data-id="pg170_n0005">shs 5500</span>
-<span data-id="pg170_n0006">&#xd7;      20</span>
-<span data-id="pg170_n0007"></span>
-<span data-id="pg170_n0008"></span></pre>
-          <div class="mt-1 ml-[4.4rem] w-[8.4rem] border-b-2 border-gray-700 max-lg:ml-[3.8rem] max-lg:w-[7.2rem] max-sm:ml-[2.8rem] max-sm:w-[5.5rem]"></div>
-          <div class="mt-10 ml-[4.4rem] w-[8.4rem] border-b-2 border-gray-700 max-lg:ml-[3.8rem] max-lg:w-[7.2rem] max-sm:mt-8 max-sm:ml-[2.8rem] max-sm:w-[5.5rem]"></div>
+        <div class="sr-only">
+          <span data-id="pg170_n0005">shs 5500</span>
+          <span data-id="pg170_n0006">&#xd7; 20</span>
+          <span data-id="pg170_n0007"></span>
+          <span data-id="pg170_n0008"></span>
+        </div>
+        <div class="money-operation" aria-hidden="true">
+          <span class="money-operation__full">shs 5500</span>
+          <span class="money-operation__operator">&#xd7;</span><span class="money-operation__amount">20</span>
+          <span class="money-operation__rule"></span>
+          <span class="money-operation__answer-space"></span>
         </div>
       </div>
 
@@ -48,18 +107,25 @@
       </div>
 
       <div class="mb-5 max-sm:mb-4">
-        <div class="w-[14rem] text-gray-900 max-lg:w-[12rem] max-sm:w-[9rem]">
-          <pre class="m-0 font-sans text-[2rem] leading-[1.1] max-lg:text-[1.7rem] max-sm:text-[1.15rem]"><span data-id="pg170_n0011">shs 5500</span>
-<span data-id="pg170_n0012">&#xd7;      20</span>
-<span data-id="pg170_n0013"></span>
-<span data-id="pg170_n0014">000</span>
-<span data-id="pg170_n0015">+ 11000</span>
-<span data-id="pg170_n0016"></span>
-<span data-id="pg170_n0017">shs 110000</span>
-<span data-id="pg170_n0018"></span></pre>
-          <div class="mt-1 ml-[4.6rem] w-[8.8rem] border-b-2 border-gray-700 max-lg:ml-[4rem] max-lg:w-[7.6rem] max-sm:ml-[2.9rem] max-sm:w-[5.9rem]"></div>
-          <div class="mt-2 ml-[4.6rem] w-[10.1rem] border-b-2 border-gray-700 max-lg:ml-[4rem] max-lg:w-[8.7rem] max-sm:ml-[2.9rem] max-sm:w-[6.7rem]"></div>
-          <div class="mt-1 ml-[3.9rem] w-[11.5rem] border-b-2 border-gray-700 max-lg:ml-[3.4rem] max-lg:w-[9.8rem] max-sm:ml-[2.5rem] max-sm:w-[7.6rem]"></div>
+        <div class="sr-only">
+          <span data-id="pg170_n0011">shs 5500</span>
+          <span data-id="pg170_n0012">&#xd7; 20</span>
+          <span data-id="pg170_n0013"></span>
+          <span data-id="pg170_n0014">000</span>
+          <span data-id="pg170_n0015">+ 11000</span>
+          <span data-id="pg170_n0016"></span>
+          <span data-id="pg170_n0017">shs 110000</span>
+          <span data-id="pg170_n0018"></span>
+        </div>
+        <div class="money-operation" aria-hidden="true">
+          <span class="money-operation__full">shs 5500</span>
+          <span class="money-operation__operator">&#xd7;</span><span class="money-operation__amount">20</span>
+          <span class="money-operation__rule"></span>
+          <span></span><span class="money-operation__amount">000</span>
+          <span class="money-operation__operator">+</span><span class="money-operation__amount">11000</span>
+          <span class="money-operation__rule"></span>
+          <span class="money-operation__full">shs 110000</span>
+          <span class="money-operation__final-rule"></span>
         </div>
       </div>
 
@@ -73,7 +139,7 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=89"></script>
+    <script src="./assets/offline-preloader.js?v=90"></script>
     <script src="./assets/scorm.js"></script>
     <script src="./assets/base.bundle.local.js"></script>
 </body>
