@@ -23,16 +23,50 @@ body {
   font-family: var(--book-font-family);
 }
 
+/* The generated pages occasionally carry Tailwind serif classes.  The
+   printed book uses Arial throughout its prose and display typography, so
+   keep all ordinary page text on the source typeface.  MathML retains its
+   browser math shaping. */
+#content :where(section, article, header, footer, div, p, h1, h2, h3, h4, h5, h6, span, li, td, th, caption, label) {
+  font-family: var(--book-font-family);
+}
+
+/* Printed folio: Arial Bold, 14 pt, centred at the foot of the page. */
+.source-page-number {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 43pt;
+  left: 0;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  align-items: flex-end;
+  justify-content: center;
+  color: #111;
+  font-family: var(--book-font-family) !important;
+  font-size: 14pt;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
 body > main {
   width: 100%;
 }
 
 #content {
+  position: relative;
   width: 100%;
   max-width: var(--book-canvas-width) !important;
   margin-right: auto !important;
   margin-left: auto !important;
   font-family: var(--book-font-family);
+}
+
+#content:has(> .source-page-number) {
+  padding-bottom: 5rem !important;
 }
 
 @media (max-width: 40rem) {
@@ -91,7 +125,7 @@ section[data-section-id="pg171_sec001"] :is(
 ) {
   box-sizing: border-box;
   width: 8.25rem;
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }
@@ -127,7 +161,7 @@ section[data-section-id="pg173_sec001"] > div > div.grid > div > div.pt-1 {
 section[data-section-id="pg173_sec001"] > div > div.grid > div > div.pt-1 > div:nth-child(-n+3) > span {
   display: block;
   width: 8.75rem;
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0 !important;
   white-space: nowrap;
@@ -163,7 +197,7 @@ section[data-section-id="pg177_sec001"] .book-longdiv {
   display: inline-grid;
   grid-template-columns: max-content;
   vertical-align: middle;
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-family: var(--book-font-family);
   font-variant-numeric: tabular-nums;
 }
 section[data-section-id="pg177_sec001"] .book-longdiv-label {
@@ -199,7 +233,7 @@ section[data-section-id="pg177_sec002"] :is(
   [data-id="pg177_n0031"], [data-id="pg177_n0032"], [data-id="pg177_n0038"],
   [data-id="pg177_n0039"], [data-id="pg177_n0043"], [data-id="pg177_n0044"]
 ) {
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
 }
 section[data-section-id="pg177_sec002"] :is(
@@ -212,7 +246,7 @@ section[data-section-id="pg177_sec002"] :is(
 
 /* Currency division pages 178-180. */
 section[data-section-id="pg178_sec001"] pre {
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
 }
 section[data-section-id="pg178_sec001"] .inline-flex.items-start.font-mono + span[aria-hidden="true"] {
@@ -223,7 +257,7 @@ section[data-section-id="pg179_sec002"] .grid.grid-cols-2.w-fit {
   grid-template-columns: minmax(6.4rem, max-content) 3rem !important;
   column-gap: .85rem !important;
   width: max-content !important;
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-family: var(--book-font-family);
   font-variant-numeric: tabular-nums;
 }
 section[data-section-id="pg179_sec002"] .grid.grid-cols-2.w-fit > :last-child {
@@ -260,7 +294,7 @@ section[data-section-id="pg184_sec001"] .inline-flex.items-start.font-mono + spa
 
 /* Decimal addition: the operator belongs to the left of the second addend. */
 section[data-section-id="pg140_sec001"] .decimal-operation {
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
 }
 section[data-section-id="pg140_sec001"] .decimal-operation > div {
@@ -283,7 +317,7 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   max-width: 100%;
   flex-direction: column;
   gap: .18rem;
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
   line-height: 1.15;
 }
@@ -315,7 +349,7 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   width: max-content;
   max-width: 100%;
   align-items: end;
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace !important;
+  font-family: var(--book-font-family) !important;
   font-variant-numeric: tabular-nums;
   line-height: 1.18;
   white-space: nowrap;
