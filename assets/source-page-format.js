@@ -1,6 +1,40 @@
 /* Source-book folios. Decorative only: the reader navigation already
    announces the digital page position. */
 (function () {
+  function getPhysicalPageNumber() {
+    var titleMeta = document.querySelector('meta[name="title-id"]');
+    var match = titleMeta && /^pg(\d{3})_/.exec(titleMeta.content || '');
+    if (!match) return null;
+    var physicalPage = Number(match[1]);
+    return Number.isFinite(physicalPage) && physicalPage >= 1 && physicalPage <= 184
+      ? physicalPage
+      : null;
+  }
+
+  function enableFacsimileMode() {
+    var content = document.getElementById('content');
+    var physicalPage = getPhysicalPageNumber();
+    if (!content || !physicalPage || content.classList.contains('source-facsimile-mode')) return;
+
+    var semanticLayer = document.createElement('div');
+    semanticLayer.className = 'source-facsimile-semantic';
+    semanticLayer.setAttribute('data-purpose', 'accessible-text-and-read-aloud');
+    while (content.firstChild) semanticLayer.appendChild(content.firstChild);
+
+    var pageImage = document.createElement('img');
+    pageImage.className = 'source-facsimile-page';
+    pageImage.src = 'images/facsimile/pg' + String(physicalPage).padStart(3, '0') + '.png';
+    pageImage.alt = '';
+    pageImage.setAttribute('aria-hidden', 'true');
+    pageImage.decoding = 'async';
+    pageImage.loading = 'eager';
+    pageImage.draggable = false;
+
+    content.classList.add('source-facsimile-mode');
+    content.appendChild(pageImage);
+    content.appendChild(semanticLayer);
+  }
+
   function restoreSourceBlockOrder() {
     /* Page 15 was split into three conversion sections.  In the print page,
        question 4 (the Roman-number table) precedes question 5 inside the same
@@ -17,7 +51,7 @@
   function addSourcePageNumber() {
     var titleMeta = document.querySelector('meta[name="title-id"]');
     var content = document.getElementById('content');
-    if (!titleMeta || !content || content.querySelector('.source-page-number')) return;
+    if (!titleMeta || !content || content.classList.contains('source-facsimile-mode') || content.querySelector('.source-page-number')) return;
 
     var match = /^pg(\d{3})_/.exec(titleMeta.content || '');
     if (!match) return;
@@ -52,6 +86,7 @@
 
   function fitSourcePageContent() {
     var content = document.getElementById('content');
+    if (content && content.classList.contains('source-facsimile-mode')) return;
     var folio = content && content.querySelector('.source-page-number');
     var sections = content && Array.prototype.slice.call(content.querySelectorAll(':scope > section'));
     if (!content || !folio || !sections || !sections.length) return;
@@ -109,6 +144,7 @@
 
   function applySourceFormatting() {
     restoreSourceBlockOrder();
+    enableFacsimileMode();
     addSourcePageNumber();
     window.setTimeout(fitSourcePageContent, 260);
   }
