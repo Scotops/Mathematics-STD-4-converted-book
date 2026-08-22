@@ -422,3 +422,238 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
 
   #content { box-shadow: none !important; }
 }
+
+/* Printed-book fidelity ---------------------------------------------------
+   The source was designed on a 540.898 x 750.661 pt page.  The generated
+   ADT originally expanded every section to the browser width, making type,
+   tables, labels, and exercise panels roughly one-and-a-half times larger
+   than the printed book.  Keep the accessible HTML, but present it on the
+   source page geometry (721 x 1001 CSS px at 96 dpi). */
+@media screen and (min-width: 52rem) {
+  :root {
+    --source-page-scale: .6666667;
+    --source-page-layout-width: 1081.5px;
+    --source-page-layout-height: 1501.5px;
+    --source-body-width: 816px;
+    --source-page-padding-top: 125px;
+    --source-page-padding-x: 48px;
+    --source-page-padding-bottom: 150px;
+    --source-folio-width: 96px;
+    --source-folio-height: 48px;
+    --source-folio-bottom: 84px;
+    --source-folio-font-size: 28px;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) {
+    display: block !important;
+    min-height: 100vh;
+    background: #dfe4e8 !important;
+    padding: 20px 16px 112px !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content {
+    position: relative;
+    box-sizing: border-box;
+    width: var(--source-page-layout-width) !important;
+    max-width: var(--source-page-layout-width) !important;
+    height: var(--source-page-layout-height) !important;
+    min-height: var(--source-page-layout-height) !important;
+    margin: 0 auto !important;
+    padding: var(--source-page-padding-top) var(--source-page-padding-x) var(--source-page-padding-bottom) !important;
+    overflow: hidden;
+    zoom: var(--source-page-scale);
+    background:
+      linear-gradient(90deg, rgba(225, 242, 207, .72) 0, rgba(242, 249, 232, .42) 8%, rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 82%, rgba(242, 249, 232, .42) 92%, rgba(225, 242, 207, .72) 100%),
+      linear-gradient(0deg, rgba(225, 242, 207, .78) 0, rgba(245, 250, 238, .42) 9%, rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 88%, rgba(235, 247, 222, .52) 100%),
+      #fff !important;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, .18);
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content > section {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: var(--source-body-width) !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  /* The folios in the source are white Arial Bold text in a green capsule,
+     centred 42 pt above the foot of every printed page. */
+  body:not(:has(section[data-section-type="front_cover"])) .source-page-number {
+    right: 0;
+    bottom: var(--source-folio-bottom);
+    left: 0;
+    width: var(--source-folio-width);
+    height: var(--source-folio-height);
+    min-height: var(--source-folio-height);
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #78b84f;
+    color: #fff;
+    font-size: var(--source-folio-font-size);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* The page height already reserves the printed footer area. */
+  body:not(:has(section[data-section-type="front_cover"])) #content:has(> .source-page-number) {
+    padding-bottom: 150px !important;
+  }
+
+  /* Restore the type scale used by the print composition.  These utility
+     classes were generated for an unconstrained web canvas; after the page
+     itself is reduced to print size they need the corresponding source size. */
+  #content .text-sm { font-size: 21px !important; }
+  #content .text-base { font-size: 24px !important; }
+  #content .text-lg { font-size: 27px !important; }
+  #content .text-xl { font-size: 28px !important; }
+  #content .text-2xl { font-size: 30px !important; }
+
+  /* Topic introductions are plain text in the book, not conversion-created
+     floating cards.  Example and exercise panels remain bordered below. */
+  #content > section[data-section-type="boxed_text"] > div:first-child:has(> h1) {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* Printed exercise labels overlap a compact panel. */
+  #content .print-exercise > .relative {
+    padding-top: 50px !important;
+  }
+
+  /* Publication page. */
+  section[data-section-id="pg002_sec001"] {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  body:has(section[data-section-id="pg002_sec001"]) #content {
+    padding-top: 24px !important;
+  }
+
+  /* Contents page. */
+  body:has(section[data-section-id="pg003_sec001"]) #content {
+    padding-top: 52px !important;
+  }
+  section[data-section-id="pg003_sec001"] .space-y-3 {
+    font-size: 27px !important;
+  }
+
+  /* Acknowledgements: use the complete source text width and keep the
+     signature block on the printed left edge. */
+  body:has(section[data-section-id="pg004_sec001"]) #content {
+    padding-top: 103px !important;
+  }
+  section[data-section-id="pg004_sec001"] {
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  /* Introduction: source-sized type and QR/sign-off placement. */
+  body:has(section[data-section-id="pg005_sec001"]) #content {
+    padding-top: 108px !important;
+  }
+  section[data-section-id="pg005_sec001"] {
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  section[data-section-id="pg005_sec001"] > .relative.z-10 {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none !important;
+    padding: 0 24px;
+  }
+  section[data-section-id="pg005_sec001"] h1 {
+    margin-bottom: 21px !important;
+    font-size: 32px !important;
+  }
+  section[data-section-id="pg005_sec001"] p {
+    font-size: 27px !important;
+    line-height: 1.34 !important;
+  }
+
+  /* Currency chapter introduction: its source page begins with plain text,
+     followed by the bordered worked example. */
+  section[data-section-id="pg171_sec001"] {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  section[data-section-id="pg171_sec001"] > [data-id]:first-child {
+    margin-bottom: 12px !important;
+    font-size: 28px !important;
+    font-weight: 400 !important;
+  }
+  section[data-section-id="pg171_sec001"] > p {
+    font-size: 27px !important;
+    line-height: 1.35 !important;
+  }
+  section[data-section-id="pg171_sec001"] > p:nth-of-type(2) {
+    text-align: center !important;
+  }
+
+  /* Diagram-dense revision pages use the compact figure sizes of the
+     printed composition so that every labelled shape remains on one page. */
+  section[data-section-id="pg097_sec001"] svg[aria-label^="Rectangle 19"] {
+    width: 420px !important;
+  }
+  section[data-section-id="pg097_sec001"] svg[aria-label^="Square with side"] {
+    width: 225px !important;
+  }
+  section[data-section-id="pg097_sec001"] svg[aria-label^="Rectangle 21"] {
+    width: 330px !important;
+  }
+  section[data-section-id="pg097_sec001"] svg[aria-label^="Triangle with sides"] {
+    width: 330px !important;
+  }
+  section[data-section-id="pg097_sec001"] .space-y-6 {
+    row-gap: 12px !important;
+  }
+
+  section[data-section-id="pg111_sec001"] svg[aria-label^="Square 23"] {
+    width: 285px !important;
+  }
+  section[data-section-id="pg111_sec001"] svg[aria-label^="Composite rectangle"] {
+    width: 590px !important;
+  }
+  section[data-section-id="pg111_sec001"] svg[aria-label^="Triangle P Q R"] {
+    width: 450px !important;
+  }
+
+  /* Roman-number exercise 4 uses four inline choices in the source. */
+  section[data-section-id="pg015_sec002"] .grid.grid-cols-2 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    column-gap: 18px !important;
+  }
+  section[data-section-id="pg015_sec003"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  section[data-section-id="pg015_sec003"] p,
+  section[data-section-id="pg015_sec003"] table {
+    font-size: 24px !important;
+  }
+
+  /* Measurement exercise numerals use the same 10 pt / 14 pt leading as the
+     source. */
+  section[data-section-id="pg061_sec001"] .text-center {
+    font-size: 25px !important;
+  }
+}
+
+/* Maintain the same page proportions on narrower screens without forcing
+   horizontal scrolling.  The reader controls stay outside the page sheet. */
+@media screen and (min-width: 40.001rem) and (max-width: 51.999rem) {
+  body:not(:has(section[data-section-type="front_cover"])) #content {
+    max-width: 721px !important;
+  }
+}
