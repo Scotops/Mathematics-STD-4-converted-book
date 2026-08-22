@@ -4,6 +4,21 @@
 :root {
   --book-canvas-width: 74rem;
   --book-font-family: Arial, Helvetica, sans-serif;
+  /* Colours sampled from the printed source.  A number of conversion pages
+     used Tailwind's brighter stock colours, although the book consistently
+     uses this quieter TIE palette. */
+  --source-ink: #171717;
+  --source-rule: #303642;
+  --source-green: #7eba56;
+  --source-green-dark: #72b45a;
+  --source-teal: #00919c;
+  --source-cyan-border: #38b7c2;
+  --source-example-top: #80d7f7;
+  --source-example-bottom: #c0e6e9;
+  --source-pink-border: #e55eae;
+  --source-exercise-top: #f9b3dc;
+  --source-exercise-bottom: #f683c7;
+  --source-revision: #f1f7ec;
 }
 
 html,
@@ -29,6 +44,64 @@ body {
    browser math shaping. */
 #content :where(section, article, header, footer, div, p, h1, h2, h3, h4, h5, h6, span, li, td, th, caption, label) {
   font-family: var(--book-font-family);
+}
+
+/* Source-book colour system.  These selectors intentionally target only the
+   generated utility colours; page-specific colours and semantic highlights
+   remain available. */
+:where(#content) :is(.text-gray-800, .text-gray-900, .text-neutral-800, .text-neutral-900,
+  .text-zinc-800, .text-zinc-900, .text-slate-800, .text-slate-900) {
+  color: var(--source-ink) !important;
+}
+
+:where(#content) :is(.text-green-500, .text-green-600, .text-green-700, .text-lime-600) {
+  color: var(--source-green-dark) !important;
+}
+
+:where(#content) :is(.text-cyan-600, .text-cyan-700) {
+  color: var(--source-teal) !important;
+}
+
+:where(#content) :is(.border-gray-700, .border-gray-800, .border-gray-900,
+  .border-neutral-700, .border-neutral-800) {
+  border-color: var(--source-rule) !important;
+}
+
+:where(#content) :is(.border-cyan-200, .border-cyan-300, .border-cyan-400,
+  .border-cyan-500, .border-cyan-600, .border-sky-200, .border-sky-300) {
+  border-color: var(--source-cyan-border) !important;
+}
+
+:where(#content) :is(.border-pink-200, .border-pink-300, .border-pink-400, .border-pink-500) {
+  border-color: var(--source-pink-border) !important;
+}
+
+:where(#content) :is(.border-green-200, .border-green-300, .border-lime-300, .border-lime-400) {
+  border-color: #9bcf7a !important;
+}
+
+:where(#content) .bg-cyan-200 {
+  background-color: var(--source-example-bottom) !important;
+}
+
+:where(#content) .from-cyan-200.to-cyan-300 {
+  background-image: linear-gradient(to bottom, var(--source-example-top), var(--source-example-bottom)) !important;
+}
+
+:where(#content) .from-cyan-100.to-cyan-300 {
+  background-image: linear-gradient(to bottom, #d8f0f1, var(--source-example-bottom)) !important;
+}
+
+:where(#content) .bg-pink-200 {
+  background-color: var(--source-exercise-top) !important;
+}
+
+:where(#content) .from-pink-200.to-pink-300 {
+  background-image: linear-gradient(to bottom, var(--source-exercise-top), var(--source-exercise-bottom)) !important;
+}
+
+:where(#content) :is(.bg-green-50, .bg-lime-50) {
+  background-color: var(--source-revision) !important;
 }
 
 /* Printed folio: Arial Bold, 14 pt, centred at the foot of the page. */
@@ -490,7 +563,7 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    background: #78b84f;
+    background: var(--source-green);
     color: #fff;
     font-size: var(--source-folio-font-size);
     font-weight: 700;
@@ -599,6 +672,15 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   section[data-section-id="pg171_sec001"] > p:nth-of-type(2) {
     text-align: center !important;
   }
+  section[data-section-id="pg171_sec001"] .text-\[22px\] {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+  }
+  section[data-section-id="pg171_sec001"] [data-id="pg171_n0011"] {
+    box-sizing: border-box;
+    min-width: 280px;
+    margin-left: 42px;
+  }
 
   /* Diagram-dense revision pages use the compact figure sizes of the
      printed composition so that every labelled shape remains on one page. */
@@ -646,7 +728,71 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   /* Measurement exercise numerals use the same 10 pt / 14 pt leading as the
      source. */
   section[data-section-id="pg061_sec001"] .text-center {
-    font-size: 25px !important;
+    font-size: 28px !important;
+  }
+  section[data-section-id="pg061_sec001"] > div > .absolute [data-id="pg061_n0003"] {
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+    font-size: 28px !important;
+  }
+  section[data-section-id="pg061_sec002"] [data-id="pg061_n0063"],
+  section[data-section-id="pg061_sec002"] [data-id="pg061_n0064"] {
+    font-size: 28px !important;
+    line-height: 1.34 !important;
+  }
+
+  /* The mass examples on page 70 use the source's overlapping label tabs.
+     The conversion had placed the labels inside the card beside the sums. */
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(2),
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(3) {
+    position: relative;
+    overflow: visible !important;
+  }
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(2) > div > .mb-4.flex {
+    display: block !important;
+    margin-bottom: 24px !important;
+  }
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(2) > div > .mb-4.flex > div:first-child,
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(3) > div > div:first-child {
+    position: absolute;
+    top: -26px;
+    left: 46px;
+    z-index: 2;
+    margin: 0 !important;
+  }
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(2) > div > .mb-4.flex > div:nth-child(2) {
+    margin-left: 40px !important;
+    padding-top: 34px !important;
+  }
+  section[data-section-id="pg070_sec001"] > div:nth-of-type(3) > div {
+    padding-top: 68px !important;
+    padding-bottom: 70px !important;
+  }
+  body:has(section[data-section-id="pg070_sec001"]) #content {
+    padding-top: 149px !important;
+  }
+  section[data-section-id="pg070_sec001"] .text-base {
+    font-size: 28px !important;
+  }
+
+  /* Final revision: match the source's 14 pt questions.  The conversion's
+     1.15 rem utilities became undersized after the page canvas was restored. */
+  section[data-section-id="pg184_sec001"] > .mb-10,
+  section[data-section-id="pg184_sec001"] > .space-y-6 {
+    font-size: 28px !important;
+  }
+  section[data-section-id="pg184_sec001"] > .mb-10 {
+    font-size: 26px !important;
+  }
+  section[data-section-id="pg184_sec001"] > .space-y-6 {
+    line-height: 1.38 !important;
+  }
+  section[data-section-id="pg184_sec001"] > .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 12px !important;
+  }
+  section[data-section-id="pg184_sec001"] > .space-y-6 > div > div > span {
+    font-size: 28px !important;
+  }
   }
 }
 
