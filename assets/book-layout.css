@@ -344,3 +344,47 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   .currency-stack,
   .currency-longdiv { font-size: .95em; }
 }
+
+/* Reference-book reader frame. Keep the corrected page content unchanged and
+   present it as a centred white sheet on the reader's soft slate canvas. */
+@media screen {
+  body:not(:has(section[data-section-type="front_cover"])) {
+    align-items: flex-start !important;
+    background: #e2e8f0 !important;
+    padding: 20px 16px 112px !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) > main {
+    width: 100% !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 1104px !important;
+    min-height: calc(100vh - 132px);
+    margin: 0 auto !important;
+    background: #fff !important;
+    box-shadow: 0 22px 55px rgba(15, 23, 42, .2);
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  body:not(:has(section[data-section-type="front_cover"])) {
+    padding: 0 0 88px !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content {
+    min-height: calc(100vh - 88px);
+    box-shadow: none;
+  }
+}
+
+@media print {
+  body {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  #content { box-shadow: none !important; }
+}
