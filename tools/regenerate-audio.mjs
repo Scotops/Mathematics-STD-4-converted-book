@@ -23,6 +23,8 @@ const questionNumbersOnly = args.has('--question-numbers-only');
 const stepNumbersOnly = args.has('--step-numbers-only');
 const answerLinesOnly = args.has('--answer-lines-only');
 const fractionsOnly = args.has('--fractions-only');
+const pageNarrationOnly = args.has('--page-narration-only');
+const skipExisting = args.has('--skip-existing');
 const voice = valueAfter('--voice') ?? 'coral';
 const model = valueAfter('--model') ?? 'gpt-4o-mini-tts';
 const instructions = valueAfter('--instructions') ??
@@ -202,7 +204,7 @@ const texts = JSON.parse(await fs.readFile(textPath, 'utf8'));
 const audioMap = JSON.parse(await fs.readFile(audioMapPath, 'utf8'));
 const stepNumberIds = findStepNumberIds(texts);
 const fractionSource = /<mfrac\b|[½¼¾⅓⅔⅛⅜⅝⅞]/i;
-const allJobs = Object.entries(audioMap)
+let allJobs = Object.entries(audioMap)
   .map(([id, filename]) => ({ id, filename, text: speakable(texts[id], stepNumberIds.has(id)) }))
   .filter(job => idPrefixes.length === 0 || idPrefixes.some(prefix => job.id.startsWith(prefix)))
   .filter(job => !excludePrefixes.some(prefix => job.id.startsWith(prefix)))
@@ -212,7 +214,12 @@ const allJobs = Object.entries(audioMap)
   .filter(job => !romanNumeralsOnly || /\b[IVXLCDM]+\b/.test(plainText(texts[job.id])))
   .filter(job => !answerLinesOnly || /\banswer-line\b/i.test(String(texts[job.id])))
   .filter(job => !fractionsOnly || fractionSource.test(String(texts[job.id])))
+  .filter(job => !pageNarrationOnly || /_read\d{3}$/.test(job.id))
   .filter(job => job.text.length > 0);
+if (skipExisting) {
+  const existing = new Set(await fs.readdir(audioDir).catch(() => []));
+  allJobs = allJobs.filter(job => !existing.has(job.filename.split('?')[0]));
+}
 const jobs = allJobs.slice(startAt, Number.isFinite(limit) ? startAt + limit : undefined);
 
 if (args.has('--audit-math-speech')) {
@@ -231,7 +238,7 @@ if (args.has('--audit-math-speech')) {
 }
 
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, romanNumeralsOnly, fractionsOnly, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
+  console.log(JSON.stringify({ dryRun: true, model, voice, concurrency, romanNumbers, romanNumeralsOnly, fractionsOnly, pageNarrationOnly, idPrefixes, excludePrefixes, startAt, totalJobs: jobs.length, sourceJobs: allJobs.length, sample: jobs.slice(0, 3) }, null, 2));
   process.exit(0);
 }
 
@@ -239,6 +246,7 @@ if (!process.env.OPENAI_API_KEY) throw new Error('OPENAI_API_KEY is required whe
 await fs.mkdir(audioDir, { recursive: true });
 let completed = 0;
 let cursor = 0;
+const failures = [];
 async function generate(job) {
   if (job.text.length > 4096) throw new Error(`${job.id} exceeds the TTS input limit.`);
   let response;
@@ -248,7 +256,7 @@ async function generate(job) {
         method: 'POST',
         headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ model, voice, input: job.text, instructions, response_format: 'mp3' }),
-        signal: AbortSignal.timeout(90000),
+        signal: AbortSignal.timeout(180000),
       });
       if (response.ok || (response.status !== 429 && response.status < 500)) break;
     } catch (error) {
@@ -268,7 +276,12 @@ async function worker() {
   while (true) {
     const job = jobs[cursor++];
     if (!job) return;
-    await generate(job);
+    try { await generate(job); }
+    catch (error) { failures.push({ id: job.id, error: error.message }); }
   }
 }
 await Promise.all(Array.from({ length: Math.min(concurrency, jobs.length) }, worker));
+if (failures.length) {
+  console.error(JSON.stringify({ failures }, null, 2));
+  process.exitCode = 1;
+}
