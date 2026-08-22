@@ -13,4 +13,17 @@ for (const key of ['./assets/config.json', './content/pages.json', './content/i1
   cache[key] = JSON.parse(await readFile(path.join(root, key.slice(2)), 'utf8'));
 }
 await writeFile(file, `${source.slice(0, start)}${JSON.stringify(cache)}${source.slice(end)}`, 'utf8');
-console.log('Refreshed offline cache for configuration, manifest, and localized text.');
+
+const bundleVersion = cache['./assets/config.json'].bundleVersion;
+const pages = cache['./content/pages.json'];
+for (const page of pages) {
+  const htmlPath = path.join(root, page.href);
+  const html = await readFile(htmlPath, 'utf8');
+  const refreshed = html.replace(
+    /offline-preloader\.js\?v=[^"']+/g,
+    `offline-preloader.js?v=${bundleVersion}`,
+  );
+  if (refreshed !== html) await writeFile(htmlPath, refreshed, 'utf8');
+}
+
+console.log(`Refreshed offline cache and ${pages.length} active page references for bundle ${bundleVersion}.`);
