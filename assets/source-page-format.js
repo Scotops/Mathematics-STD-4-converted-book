@@ -39,7 +39,7 @@
       { x: 122, y: 502, w: 490, h: 29, fontSize: 16.5, text: 'Use accessible tools to draw a square LMNO on graph paper.' }
     ],
     120: [
-      { x: 132, y: 655, w: 455, h: 55, text: 'Use accessible tools; draw three horizontal rectangles and four vertical rectangles in the larger rectangle.' }
+      { x: 132, y: 655, w: 455, h: 55, text: 'Use accessible tools to draw three horizontal rectangles and four vertical rectangles in the larger rectangle.' }
     ],
     121: [
       { x: 128, y: 229, w: 350, h: 72, text: 'Use accessible tools to draw four horizontal rectangles and three vertical rectangles within one larger rectangle.' },
