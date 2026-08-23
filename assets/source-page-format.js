@@ -98,7 +98,7 @@
         item.style.fontSize = (Number(item.getAttribute('data-source-font-size')) * scale) + 'px';
       });
       Array.prototype.forEach.call(layer.querySelectorAll('.source-facsimile-fraction'), function (fraction) {
-        fraction.style.cssText = 'display:inline-flex;position:relative;top:0.24em;flex-direction:column;align-items:center;justify-content:center;margin:0 .08em;line-height:.82;font-size:1.08em;vertical-align:baseline;';
+        fraction.style.cssText = 'display:inline-flex;position:relative;top:0.02em;flex-direction:column;align-items:center;justify-content:center;margin:0 .08em;line-height:.82;font-size:1.08em;vertical-align:baseline;';
         if (fraction.children[0]) fraction.children[0].style.borderBottom = '1px solid currentColor';
         if (fraction.children[0]) fraction.children[0].style.padding = '0 .1em .05em';
         if (fraction.children[1]) fraction.children[1].style.paddingTop = '.05em';
