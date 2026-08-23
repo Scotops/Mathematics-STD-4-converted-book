@@ -46,7 +46,7 @@
       { x: 140, y: 711, w: 169, h: 169, lineHeight: '1.15', text: 'Use accessible tools to draw a rectangle divided into 4 equal horizontal parts and 8 equal vertical parts, as shown in the diagram.' }
     ],
     128: [
-      { x: 131, y: 738, w: 478, h: 48, lineHeight: '1', html: 'Use accessible tools to show <span class="source-facsimile-fraction"><span>2</span><span>5</span></span> on a diagram by drawing five equal boxes as shown in the following diagram:' }
+      { x: 131, y: 738, w: 478, h: 48, fontSize: 17.5, lineHeight: '1', html: 'Use accessible tools to show <span class="source-facsimile-fraction"><span>2</span><span>5</span></span> on a diagram by drawing five equal boxes as shown in the following diagram:' }
     ],
     130: [
       { x: 94, y: 198, w: 520, h: 55, text: 'Use accessible online tools and reliable programs such as Khan Academy to learn more about fractions.' }
