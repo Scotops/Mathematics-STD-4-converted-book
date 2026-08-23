@@ -42,8 +42,8 @@
       { x: 132, y: 655, w: 455, h: 55, text: 'Use accessible tools; draw three horizontal rectangles and four vertical rectangles in the larger rectangle.' }
     ],
     121: [
-      { x: 128, y: 229, w: 350, h: 72, text: 'Use accessible tools; draw four horizontal rectangles and three vertical rectangles within one larger rectangle.' },
-      { x: 140, y: 711, w: 169, h: 169, lineHeight: '1.15', text: 'Use accessible tools; draw a rectangle divided into 4 equal horizontal parts and 8 equal vertical parts, as shown in the diagram.' }
+      { x: 128, y: 229, w: 350, h: 72, text: 'Use accessible tools to draw four horizontal rectangles and three vertical rectangles within one larger rectangle.' },
+      { x: 140, y: 711, w: 169, h: 169, lineHeight: '1.15', text: 'Use accessible tools to draw a rectangle divided into 4 equal horizontal parts and 8 equal vertical parts, as shown in the diagram.' }
     ],
     128: [
       { x: 131, y: 738, w: 478, h: 48, lineHeight: '1.02', html: 'Use accessible tools; show <span class="source-facsimile-fraction"><span>2</span><span>5</span></span> on a diagram by drawing five equal boxes as shown in the following diagram:' }
