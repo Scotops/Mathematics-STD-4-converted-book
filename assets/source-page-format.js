@@ -36,7 +36,7 @@
       { x: 151, y: 166, w: 486, h: 29, text: 'Use accessible tools to find the area in each of the following:' }
     ],
     106: [
-      { x: 122, y: 502, w: 490, h: 29, text: 'Use accessible tools; draw a square LMNO on graph paper.' }
+      { x: 122, y: 502, w: 490, h: 29, fontSize: 16.5, text: 'Use accessible tools to draw a square LMNO on graph paper.' }
     ],
     120: [
       { x: 132, y: 655, w: 455, h: 55, text: 'Use accessible tools; draw three horizontal rectangles and four vertical rectangles in the larger rectangle.' }
