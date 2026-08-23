@@ -47,7 +47,8 @@
     ],
     128: [
       { x: 177, y: 718, w: 32, h: 22, text: '' },
-      { x: 131, y: 738, w: 478, h: 48, fontSize: 17.5, lineHeight: '1', html: 'Use accessible tools to show <span class="source-facsimile-fraction"><span>2</span><span>5</span></span> on a diagram by drawing five equal boxes as shown in the following diagram:' }
+      { x: 276, y: 728, w: 50, h: 14, text: '' },
+      { x: 131, y: 738, w: 478, h: 48, overflow: 'visible', fontSize: 17.5, lineHeight: '1', html: 'Use accessible tools to show <span class="source-facsimile-fraction"><span>2</span><span>5</span></span> on a diagram by drawing five equal boxes as shown in the following diagram:' }
     ],
     130: [
       { x: 94, y: 198, w: 520, h: 55, text: 'Use accessible online tools and reliable programs such as Khan Academy to learn more about fractions.' }
@@ -73,7 +74,7 @@
       item.style.top = (patch.y / referenceHeight * 100) + '%';
       item.style.width = (patch.w / referenceWidth * 100) + '%';
       item.style.height = (patch.h / referenceHeight * 100) + '%';
-      item.style.overflow = 'hidden';
+      item.style.overflow = patch.overflow || 'hidden';
       item.style.boxSizing = 'border-box';
       item.style.background = physicalPage === 103 || physicalPage === 120 || physicalPage === 121 || physicalPage === 128
         ? '#fff'
