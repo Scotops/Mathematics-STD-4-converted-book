@@ -30,7 +30,7 @@
       { x: 132, y: 157, w: 476, h: 72, text: 'Use accessible tools to measure the length of an exercise book and record it in centimetres. Also, measure its width and record it in centimetres.' }
     ],
     100: [
-      { x: 142, y: 816, w: 472, h: 28, fontSize: 16.5, text: 'Use accessible tools; draw a rectangle of your chosen size.' }
+      { x: 142, y: 816, w: 472, h: 28, fontSize: 16.5, text: 'Use accessible tools to draw a rectangle of your chosen size.' }
     ],
     103: [
       { x: 151, y: 166, w: 486, h: 29, text: 'Use accessible tools to find the area in each of the following:' }
