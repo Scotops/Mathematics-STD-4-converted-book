@@ -46,6 +46,7 @@
       { x: 140, y: 711, w: 169, h: 169, lineHeight: '1.15', text: 'Use accessible tools to draw a rectangle divided into 4 equal horizontal parts and 8 equal vertical parts, as shown in the diagram.' }
     ],
     128: [
+      { x: 177, y: 718, w: 32, h: 22, text: '' },
       { x: 131, y: 738, w: 478, h: 48, fontSize: 17.5, lineHeight: '1', html: 'Use accessible tools to show <span class="source-facsimile-fraction"><span>2</span><span>5</span></span> on a diagram by drawing five equal boxes as shown in the following diagram:' }
     ],
     130: [
@@ -97,7 +98,7 @@
         item.style.fontSize = (Number(item.getAttribute('data-source-font-size')) * scale) + 'px';
       });
       Array.prototype.forEach.call(layer.querySelectorAll('.source-facsimile-fraction'), function (fraction) {
-        fraction.style.cssText = 'display:inline-flex;position:relative;top:0.18em;flex-direction:column;align-items:center;justify-content:center;margin:0 .08em;line-height:.82;font-size:.82em;vertical-align:baseline;';
+        fraction.style.cssText = 'display:inline-flex;position:relative;top:0.24em;flex-direction:column;align-items:center;justify-content:center;margin:0 .08em;line-height:.82;font-size:1.08em;vertical-align:baseline;';
         if (fraction.children[0]) fraction.children[0].style.borderBottom = '1px solid currentColor';
         if (fraction.children[0]) fraction.children[0].style.padding = '0 .1em .05em';
         if (fraction.children[1]) fraction.children[1].style.paddingTop = '.05em';
