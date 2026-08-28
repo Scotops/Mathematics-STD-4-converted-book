@@ -49,7 +49,8 @@
       .print-exercise.pg53-section .pg53-revision-label { background: linear-gradient(180deg,#dcecd4 0%,#c2dcb8 100%) !important; }
       @media (max-width: 760px) { .pg53-page { padding: 14px 12px 24px; } .pg53-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .pg53-grid > div:last-child { grid-column: 1 / -1; } }
       @media (max-width: 520px) { .pg53-activity > div:first-child { flex-direction: column; } .pg53-grid { grid-template-columns: 1fr; } }
-    </style></head>
+    </style><link rel="stylesheet" href="./assets/sign-language-video.css">
+</head>
 
 <body class="min-h-screen flex items-center justify-center">
     <main class="w-full">
@@ -200,10 +201,12 @@
 
     <div class="relative z-50" id="interface-container"></div>
     <div class="relative z-50" id="nav-container"></div>
-    <script src="./assets/offline-preloader.js?v=101"></script>
+    <script src="./assets/offline-preloader.js?v=102"></script>
     <script src="./assets/fraction-tts-guard.js?v=100"></script>
     <script src="./assets/scorm.js"></script>
-    <script src="./assets/base.bundle.local.js"></script>
+    <script src="./assets/media-playback-independence.js"></script>
+<script src="./assets/base.bundle.local.js?v=102"></script>
+<script src="./assets/sign-language-video.js"></script>
 </body>
 
 </html>
