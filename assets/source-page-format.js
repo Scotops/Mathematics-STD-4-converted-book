@@ -245,7 +245,13 @@
 
   function applySourceFormatting() {
     restoreSourceBlockOrder();
-    enableFacsimileMode();
+    /* Keep the converted HTML as the visible page.  Earlier revisions used
+       a full-page raster image as a visual layer, which made the book look
+       like a screenshot and hid the responsive HTML layout underneath.
+       The source image layer is deliberately not enabled here: all text,
+       tables, diagrams, read-aloud IDs, and corrections remain native HTML.
+       This also prevents a large page image from being loaded for every
+       navigation. */
     addSourcePageNumber();
     window.setTimeout(fitSourcePageContent, 260);
   }

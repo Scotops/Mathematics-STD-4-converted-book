@@ -852,3 +852,63 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
     max-width: 721px !important;
   }
 }
+
+/* Native HTML reader surface ------------------------------------------------
+   Do not surround the converted content with the grey "photographed page"
+   canvas or drop shadow.  The book content itself keeps its printed exercise
+   panels, colours, tables, and diagrams, but is now presented as responsive
+   HTML rather than as a page image inside a frame. */
+@media screen {
+  body:not(:has(section[data-section-type="front_cover"])) {
+    background: #fff !important;
+    padding: 0 0 112px !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content,
+  body:not(:has(section[data-section-type="front_cover"])) #content.source-facsimile-mode {
+    background: #fff !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* The outer section used to be styled as a rounded paper card.  Keep its
+     contents, but remove that sheet-like surface so pages read as HTML. */
+  body:not(:has(section[data-section-type="front_cover"])) #content > section {
+    background: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) .source-page-number {
+    display: none !important;
+  }
+}
+
+/* Use the normal, fluid HTML canvas on wider screens too.  The previous
+   source-page scaling intentionally imitated a printed sheet; undoing that
+   scaling lets real HTML cards, columns, and diagrams use the reader width. */
+@media screen and (min-width: 52rem) {
+  body:not(:has(section[data-section-type="front_cover"])) #content {
+    width: 100% !important;
+    max-width: 1104px !important;
+    height: auto !important;
+    min-height: calc(100vh - 112px) !important;
+    margin: 0 auto !important;
+    padding: 2rem 2rem 4rem !important;
+    overflow: visible !important;
+    zoom: 1 !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content > section {
+    width: 100% !important;
+    max-width: 72rem !important;
+  }
+
+  #content .text-sm { font-size: .875rem !important; }
+  #content .text-base { font-size: 1rem !important; }
+  #content .text-lg { font-size: 1.125rem !important; }
+  #content .text-xl { font-size: 1.25rem !important; }
+  #content .text-2xl { font-size: 1.5rem !important; }
+}
