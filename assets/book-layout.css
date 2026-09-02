@@ -949,3 +949,18 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
     min-width: 0;
   }
 }
+
+/* Page 46: retain the source-book panels around the worked long-division
+   example and its exercise.  These borders are instructional grouping, not
+   a page-image frame, so they remain visible in the HTML presentation. */
+body:not(:has(section[data-section-type="front_cover"])) #content > section[data-section-id="pg046_sec003"] {
+  border: 1px solid var(--source-cyan-border) !important;
+  border-radius: 1.5rem !important;
+  background: #fff !important;
+}
+
+body:not(:has(section[data-section-type="front_cover"])) #content > section[data-section-id="pg046_sec002_rebuilt"] {
+  border: 1px solid var(--source-pink-border) !important;
+  border-radius: 1.5rem !important;
+  background: #fff !important;
+}
