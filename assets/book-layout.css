@@ -913,7 +913,9 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
 @media screen and (min-width: 52rem) {
   body:not(:has(section[data-section-type="front_cover"])) #content {
     width: 100% !important;
-    max-width: 1104px !important;
+    /* A consistent centred reading column keeps every exercise, example,
+       table, and topic page aligned like the book's example panels. */
+    max-width: 48rem !important;
     height: auto !important;
     min-height: calc(100vh - 112px) !important;
     margin: 0 auto !important;
@@ -924,7 +926,7 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
 
   body:not(:has(section[data-section-type="front_cover"])) #content > section {
     width: 100% !important;
-    max-width: 72rem !important;
+    max-width: 100% !important;
   }
 
   #content .text-sm { font-size: .875rem !important; }
