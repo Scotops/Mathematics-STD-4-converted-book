@@ -934,4 +934,18 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
   #content .text-lg { font-size: 1.125rem !important; }
   #content .text-xl { font-size: 1.25rem !important; }
   #content .text-2xl { font-size: 1.5rem !important; }
+
+  /* Page 44 contains two different division exercise types.  Its original
+     three-column web grid was wider than the shared reading column, which
+     could leave the first columns outside the visible page.  Two equal
+     columns keep every item, answer line, and long-division bracket inside
+     the same centred block. */
+  section[data-section-id="pg044_sec002"] > div:last-child > .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 2rem !important;
+  }
+
+  section[data-section-id="pg044_sec002"] > div:last-child > .grid > div {
+    min-width: 0;
+  }
 }
