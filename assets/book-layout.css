@@ -881,8 +881,29 @@ section[data-section-id="pg140_sec001"] .decimal-operation > div {
     box-shadow: none !important;
   }
 
+  /* Keep every page's reading block on one shared centre axis. */
+  body:not(:has(section[data-section-type="front_cover"])) #content > section {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  /* Restore the printed folio as a normal, centred part of the responsive
+     HTML flow.  It remains visible without reintroducing a page-image frame. */
   body:not(:has(section[data-section-type="front_cover"])) .source-page-number {
-    display: none !important;
+    display: flex !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 2.25rem !important;
+    min-width: 2.25rem !important;
+    height: 2.25rem !important;
+    min-height: 2.25rem !important;
+    margin: 2rem auto 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content:has(> .source-page-number) {
+    padding-bottom: 4rem !important;
   }
 }
 
