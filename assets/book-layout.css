@@ -965,3 +965,65 @@ body:not(:has(section[data-section-type="front_cover"])) #content > section[data
   border-radius: 1.5rem !important;
   background: #fff !important;
 }
+
+/* Exact source-layout desktop canvas.
+   The printed source is 540.898 by 750.661 points (721 by 1001 CSS px at
+   96 dpi). Keep the reader itself fluid, but render the semantic book page
+   inside that source-derived canvas. This intentionally supersedes the
+   earlier wide, free-flowing HTML preview rules above. */
+@media screen and (min-width: 52rem) {
+  body:not(:has(section[data-section-type="front_cover"])) #content {
+    width: var(--source-page-layout-width) !important;
+    max-width: var(--source-page-layout-width) !important;
+    height: var(--source-page-layout-height) !important;
+    min-height: var(--source-page-layout-height) !important;
+    margin: 0 auto !important;
+    padding: var(--source-page-padding-top) var(--source-page-padding-x) var(--source-page-padding-bottom) !important;
+    overflow: hidden !important;
+    zoom: var(--source-page-scale) !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) #content > section {
+    width: 100% !important;
+    max-width: var(--source-body-width) !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  body:not(:has(section[data-section-type="front_cover"])) .source-page-number {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: var(--source-folio-bottom) !important;
+    left: 0 !important;
+    width: var(--source-folio-width) !important;
+    height: var(--source-folio-height) !important;
+    min-height: var(--source-folio-height) !important;
+    margin: 0 auto !important;
+    font-size: var(--source-folio-font-size) !important;
+  }
+
+  body:has(section[data-section-type="front_cover"]) #content {
+    width: var(--source-page-layout-width) !important;
+    max-width: var(--source-page-layout-width) !important;
+    height: var(--source-page-layout-height) !important;
+    min-height: var(--source-page-layout-height) !important;
+    margin: 0 auto !important;
+    padding: 72px 48px 96px !important;
+    overflow: hidden !important;
+    zoom: var(--source-page-scale) !important;
+  }
+
+  body:has(section[data-section-type="front_cover"]) #content > section {
+    width: 100% !important;
+    max-width: 816px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  /* These figures are entirely visible in the source page. Their converted
+     containers must not crop their lower edges before source-page fitting. */
+  section[data-section-id="pg128_sec001"],
+  section[data-section-id="pg163_sec001"] {
+    overflow: visible !important;
+  }
+}

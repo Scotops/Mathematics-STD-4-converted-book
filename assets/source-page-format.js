@@ -253,7 +253,7 @@
        This also prevents a large page image from being loaded for every
        navigation. */
     addSourcePageNumber();
-    window.setTimeout(fitSourcePageContent, 260);
+    window.setTimeout(fitSourcePageContent, 40);
   }
 
   if (document.readyState === 'loading') {
