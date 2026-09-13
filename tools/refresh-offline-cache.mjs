@@ -9,7 +9,12 @@ const start = source.indexOf('var INLINE = ') + 'var INLINE = '.length;
 const end = source.indexOf(';\n  var BASE_DIR', start);
 if (start < 'var INLINE = '.length || end < 0) throw new Error('Could not locate the offline cache payload.');
 const cache = JSON.parse(source.slice(start, end));
-for (const key of ['./assets/config.json', './content/pages.json', './content/i18n/en-US/texts.json']) {
+for (const key of [
+  './assets/config.json',
+  './content/pages.json',
+  './content/i18n/en-US/texts.json',
+  './content/i18n/en-US/videos.json',
+]) {
   cache[key] = JSON.parse(await readFile(path.join(root, key.slice(2)), 'utf8'));
 }
 await writeFile(file, `${source.slice(0, start)}${JSON.stringify(cache)}${source.slice(end)}`, 'utf8');
