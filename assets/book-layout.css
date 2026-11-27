@@ -1028,3 +1028,48 @@ body:not(:has(section[data-section-type="front_cover"])) #content > section[data
     overflow: visible !important;
   }
 }
+
+/* Mobile reader toolbar ----------------------------------------------------
+   Match the reference ADT: leave Main Menu, page navigation, and the
+   Accessibility menu in the bottom bar.  The Accessibility menu then
+   presents Glossary, text to speech, sign language, language, and settings
+   in its own accessible panel instead of allowing those controls to run off
+   the right edge of a narrow screen. */
+@media screen and (max-width: 48rem) {
+  #nav-container [role="group"][aria-label="Reader controls"] {
+    justify-content: space-between !important;
+  }
+
+  #nav-container [role="group"][aria-label="Reader controls"] > .order-1,
+  #nav-container [role="group"][aria-label="Reader controls"] > .order-3 {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+  }
+
+  #nav-container [role="group"][aria-label="Reader controls"] > .order-2 {
+    display: flex !important;
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+  }
+
+  #nav-container button[aria-label="Main Menu"] {
+    width: 2.75rem !important;
+    min-width: 2.75rem !important;
+    max-width: 2.75rem !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    justify-content: center !important;
+  }
+
+  #nav-container button[aria-label="Main Menu"] span {
+    display: none !important;
+  }
+
+  #nav-container button[aria-label="Glossary"],
+  #nav-container button[aria-label="Activate text to speech"],
+  #nav-container button[aria-label="Sign language"],
+  #nav-container button[aria-label="Language"] {
+    display: none !important;
+  }
+}
