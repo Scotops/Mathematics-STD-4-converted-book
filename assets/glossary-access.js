@@ -132,7 +132,7 @@
       '.adt-glossary-entry h2{margin:0 0 .28rem;color:#1d7b8d;font-size:1.08rem;line-height:1.25}',
       '.adt-glossary-entry p,.adt-glossary-empty{margin:0;color:#17212b;font-size:1rem;line-height:1.45}',
       'body.adt-glossary-open{overflow:hidden!important}',
-      '@media(max-width:40rem){.adt-glossary-trigger{right:.65rem;bottom:5rem;padding:.6rem .75rem}.adt-glossary-overlay{padding:.55rem}.adt-glossary-dialog{max-height:88vh}.adt-glossary-header{padding:.85rem 1rem}}'
+      '@media(max-width:48rem){#nav-container [role="group"][aria-label="Reader controls"]{justify-content:center!important;gap:0!important;padding:.25rem!important}#nav-container [role="group"][aria-label="Reader controls"]>div{flex:0 0 auto!important;min-width:0!important}#nav-container [role="group"][aria-label="Reader controls"]>div:last-of-type{gap:0!important;padding-left:0!important}#nav-container [role="group"][aria-label="Reader controls"] button[aria-label]{width:1.9rem!important;min-width:1.9rem!important;height:1.9rem!important;padding:0!important}#nav-container button[aria-label="Main Menu"]{max-width:1.9rem!important;justify-content:center!important}#nav-container button[aria-label="Main Menu"] span{display:none!important}#nav-container [role="group"][aria-label="Reader controls"] [class*="tabular-nums"]{min-width:2.8rem!important;padding:0 .15rem!important;font-size:.68rem!important}.adt-glossary-trigger{right:.65rem;bottom:4.65rem;padding:.6rem .75rem}.adt-glossary-overlay{padding:.55rem}.adt-glossary-dialog{max-height:88vh}.adt-glossary-header{padding:.85rem 1rem}}'
     ].join('');
     document.head.appendChild(style);
 
