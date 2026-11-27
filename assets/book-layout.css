@@ -1072,4 +1072,102 @@ body:not(:has(section[data-section-type="front_cover"])) #content > section[data
   #nav-container button[aria-label="Language"] {
     display: none !important;
   }
+
+  /* Use the compact four-square Accessibility icon seen in the reference
+     reader. The runtime's settings cog remains available inside the menu. */
+  #nav-container button[aria-label="Accessibility menu"] > svg {
+    display: none !important;
+  }
+
+  #nav-container button[aria-label="Accessibility menu"]::after {
+    content: "\f00a";
+    font-family: "Font Awesome 5 Free";
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  /* Reference-style mobile accessibility sheet. The five controls remain
+     real buttons and delegate to the reader's own features. */
+  .adt-accessibility-chooser {
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgb(0 0 0 / 12%);
+  }
+
+  .adt-accessibility-sheet {
+    box-sizing: border-box;
+    width: min(100%, 31rem);
+    min-height: 15.25rem;
+    margin: 0;
+    padding: .5rem 1.25rem 1.1rem;
+    color: #fff;
+    background: #292929;
+    border: 0;
+    border-radius: .85rem .85rem 0 0;
+    box-shadow: 0 -8px 24px rgb(0 0 0 / 28%);
+  }
+
+  .adt-accessibility-handle {
+    display: block;
+    width: 2.25rem;
+    height: .22rem;
+    margin: 0 auto .8rem;
+    background: #777;
+    border-radius: 999px;
+  }
+
+  .adt-accessibility-title {
+    margin: 0 0 .8rem;
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .adt-accessibility-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .55rem .75rem;
+  }
+
+  .adt-accessibility-option {
+    display: flex;
+    min-height: 3.7rem;
+    align-items: center;
+    justify-content: center;
+    gap: .42rem;
+    padding: .55rem .45rem;
+    color: #fff;
+    font: inherit;
+    font-size: .68rem;
+    line-height: 1.15;
+    text-align: center;
+    background: transparent;
+    border: 0;
+    border-radius: .55rem;
+    cursor: pointer;
+  }
+
+  .adt-accessibility-option:hover,
+  .adt-accessibility-option:focus-visible {
+    background: #484848;
+    outline: 0;
+  }
+
+  .adt-accessibility-option:focus-visible {
+    box-shadow: 0 0 0 2px #fff;
+  }
+
+  .adt-accessibility-option i {
+    font-size: .95rem;
+  }
+
+  .adt-accessibility-option:nth-child(5) {
+    grid-column: 1;
+  }
 }
